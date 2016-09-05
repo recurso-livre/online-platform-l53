@@ -1,6 +1,6 @@
 <div class="alert alert-warning" role="alert">Preencha todos os campos corretamente e confirme para continuar.</div>
 
-<form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+<form class="form-horizontal" role="form" method="POST" action="{{ route('guest.create.post') }}">
     {{ csrf_field() }}
     
     @if($errors->any())
