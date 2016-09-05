@@ -44,6 +44,8 @@ Route::group(['as' => 'user.'], function ()
 Route::group(['as' => 'guest.'], function ()
 {
     Route::post('acessar', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
+
+
     Route::get('cadastrar', ['as' => 'create', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
     Route::post('cadastrar', ['as' => 'create.post', 'uses' => 'Auth\RegisterController@register']);
     
