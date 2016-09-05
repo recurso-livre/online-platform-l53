@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+use App\Http\Requests;
+
+// Classe de Controller de Usuário não-autenticado (visitante)
+class GuestController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -13,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
 
     /**
