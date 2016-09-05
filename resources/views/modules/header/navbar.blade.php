@@ -38,13 +38,13 @@
           </li>
         @else
           <li>
-            <a class="rl-navbar-btn" href="/login">
+            <a class="rl-navbar-btn" href="#" data-toggle="modal" data-target="#login-modal">
               Acessar&nbsp;&nbsp;
               <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
             </a>
           </li>
           <li>
-            <a class="rl-navbar-btn" href="/usuario/cadastrar">
+            <a class="rl-navbar-btn" href="{{ route('guest.create') }}">
               Cadastrar&nbsp;&nbsp;
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             </a>
@@ -56,3 +56,44 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div class="rl-fixed-navbar-space"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      
+      <form method="post" action="{{ route('guest.login.post') }}">
+        {{ csrf_field() }}
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">Acessar minha conta...</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12" style="margin-bottom: 8px">
+              <label>Email</label>
+              <input type="email" name="email" class="form-control" placeholder="Email" />
+            </div>
+            <div class="col-md-12">
+              <label>Senha</label>
+              <input type="password" name="password" class="form-control" placeholder="Senha" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <a href="#" class="pull-left">Esqueci minha senha</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="/cadastrar" class="btn btn-primary pull-left">Cadastrar agora</a>
+          <button type="submit" id="modal-btn" class="btn btn-success">Entrar</button>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+</div>

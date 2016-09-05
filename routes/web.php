@@ -19,7 +19,6 @@ Route::get('/home', 'HomeController@index');
 //Auth::routes();
     // Authentication Routes...
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-    Route::post('login', 'Auth\LoginController@login');
     // Route::get('logout', 'Auth\LoginController@logout');
     
     // Registration Routes...
@@ -44,6 +43,7 @@ Route::group(['as' => 'user.'], function ()
 
 Route::group(['as' => 'guest.'], function ()
 {
+    Route::post('acessar', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
     Route::get('cadastrar', ['as' => 'create', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
     Route::post('cadastrar', ['as' => 'create.post', 'uses' => 'Auth\RegisterController@register']);
     
