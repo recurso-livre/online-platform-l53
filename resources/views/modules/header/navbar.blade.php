@@ -24,8 +24,33 @@
         </form>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="rl-navbar-btn" href="/login">Acessar&nbsp;&nbsp;<span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
-        <li><a class="rl-navbar-btn" href="/usuario/cadastrar">Cadastrar&nbsp;&nbsp;<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+        @if (Auth::check())
+          <li>
+            <a class="rl-navbar-btn" href="#">
+              <span class="rl-navbar-btn">{{ mb_strimwidth(Auth::user()->name, 0, 30, ".") }}</span>
+            </a>
+          </li>
+          <li>
+            <a class="rl-navbar-btn" href="/logout">
+              Sair&nbsp;&nbsp;
+              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+            </a>
+          </li>
+        @else
+          <li>
+            <a class="rl-navbar-btn" href="/login">
+              Acessar&nbsp;&nbsp;
+              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li>
+            <a class="rl-navbar-btn" href="/usuario/cadastrar">
+              Cadastrar&nbsp;&nbsp;
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            </a>
+          </li>
+        @endif
+        
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
