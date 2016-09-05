@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+
+
+Route::get('/', ['as' => 'guest.index', 'uses' => 'GuestController@index']);
 
 Route::get('/home', 'HomeController@index');
