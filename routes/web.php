@@ -68,7 +68,8 @@ Route::group(['as' => 'auth.'], function ()
     
     Route::group(['as' => 'resource.', 'prefix' => 'recurso'], function ()
     {
-        Route::get('cadastrar', ['as' => 'create', 'uses' => 'UserController@index']);
+        Route::get('cadastrar', ['as' => 'create', 'uses' => 'ResourceController@create']);
+        Route::post('cadastrar', ['as' => 'store', 'uses' => 'ResourceController@store']);
     });
     
     Route::group(['as' => 'category.', 'prefix' => 'categoria'], function ()

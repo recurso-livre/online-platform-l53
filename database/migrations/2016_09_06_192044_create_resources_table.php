@@ -27,8 +27,8 @@ class CreateResourcesTable extends Migration
             $table->text("uriResources");                   // não-nulo
 
             // Chave estrangeira para o usuário associado ao recurso
-            //$table->integer('user_id')->unsigned()->index();
-            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
