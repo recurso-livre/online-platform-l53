@@ -73,6 +73,7 @@ Route::group(['as' => 'auth.'], function ()
     
     Route::group(['as' => 'category.', 'prefix' => 'categoria'], function ()
     {
-        Route::get('cadastrar', ['as' => 'create', 'uses' => 'UserController@index']);
+        Route::get('cadastrar', ['as' => 'create', 'uses' => 'CategoryController@create']);
+        Route::post('cadastrar', ['as' => 'store', 'uses' => 'CategoryController@store']);
     });
 });
