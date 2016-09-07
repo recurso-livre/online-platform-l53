@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Resource extends Model
 {
+    use Searchable;
+
     // Campos que permitirão Mass Assignment
     protected $fillable = [
         "name",
