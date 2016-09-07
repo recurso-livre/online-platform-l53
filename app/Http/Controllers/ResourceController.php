@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use Auth;
 use App\Http\Requests\ResourceRequest;
+use App\Http\Requests\ResourceSearchRequest;
 use App\Category;
 use App\Resource;
 
@@ -48,7 +49,7 @@ class ResourceController extends Controller
         return redirect()->route("user.index");
     }
 
-    public function search($category, $query, $page)
+    public function search(ResourceSearchRequest $request, $category, $query, $page)
     {
         // Pesquisar por nome de recurso
         $resources = Resource::search(null)->where('name', $query)->get();
