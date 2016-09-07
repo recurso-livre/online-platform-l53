@@ -1,6 +1,6 @@
 <div class="alert alert-warning" role="alert">Preencha todos os campos corretamente e confirme para continuar.</div>
     
-{!! Form::open(['url'=>'/api/recurso/cadastrar', 'id'=>'create-resource']) !!}
+{!! Form::open(['url'=>route('auth.resource.create'), 'id'=>'create-resource']) !!}
 
     @if($errors->any())
       <div class="alert alert-danger" role="alert">
