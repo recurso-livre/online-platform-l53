@@ -10,11 +10,13 @@ $('.img-modal, .video-modal').click(function () {
     modal.modal('show');
 });
 
-$('#modal-btn').click(function () {
+$('#url-btn').click(function () {
     var modal = $('#insert-link'),
         modalUrl = $('#modal-url'),
         image = $(modal.attr('item-id')),
         newUrl = modalUrl.val();
+        
+    console.log(modal);
     
     if (newUrl) {
         image.attr('src', newUrl);

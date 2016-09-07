@@ -119,7 +119,7 @@
         <input type="text" id="modal-url" class="form-control" placeholder="URL" />
       </div>
       <div class="modal-footer">
-        <button type="button" id="modal-btn" class="btn btn-primary">Salvar link</button>
+        <button id="url-btn" type="button" class="btn btn-primary">Salvar link</button>
       </div>
     </div>
   </div>

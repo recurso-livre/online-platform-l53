@@ -38,7 +38,7 @@
           </li>
         @else
           <li>
-            <a class="rl-navbar-btn" href="#" data-toggle="modal" data-target="#login-modal">
+            <a class="rl-navbar-btn" href="#login" id="open-login">
               Acessar&nbsp;&nbsp;
               <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
             </a>
@@ -59,6 +59,15 @@
 
 <!-- Modal -->
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+        @if($errors->any())
+          <div class="alert alert-danger modal-dialog modal-sm" role="alert">
+        		<ul>
+        			@foreach($errors->all() as $error)
+        				<li>{{ $error }}</li>
+        			@endforeach
+        		</ul>
+        	</div>
+        @endif
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       
@@ -97,3 +106,19 @@
     </div>
   </div>
 </div>
+
+@push('posscripts')
+  <script>
+    $(function () {
+      var hash = window.location.hash;
+      console.log(hash);
+      if (hash === '#login') {
+        $('#login-modal').modal('show');
+      }
+    });
+    
+    $('#open-login').click(function () {
+      $('#login-modal').modal('show');
+    });
+  </script>
+@endpush
