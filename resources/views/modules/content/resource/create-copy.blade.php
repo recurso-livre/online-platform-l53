@@ -1,6 +1,6 @@
 <div class="alert alert-warning" role="alert">Preencha todos os campos corretamente e confirme para continuar.</div>
     
-{!! Form::open(['url'=>'/api/recurso/cadastrar', 'id'=>'create-resource']) !!}
+{!! Form::open(['url'=>route('auth.resource.create'), 'id'=>'create-resource']) !!}
 
     @if($errors->any())
       <div class="alert alert-danger" role="alert">
@@ -119,7 +119,7 @@
         <input type="text" id="modal-url" class="form-control" placeholder="URL" />
       </div>
       <div class="modal-footer">
-        <button type="button" id="modal-btn" class="btn btn-primary">Salvar link</button>
+        <button id="url-btn" type="button" class="btn btn-primary">Salvar link</button>
       </div>
     </div>
   </div>

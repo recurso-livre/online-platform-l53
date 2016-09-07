@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Address;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -50,7 +51,14 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'phone' => 'required|max:17',
+            'password' => 'required|min:6|max:51|confirmed',
+            'zipCode' => 'required|max:255',
+            'street' => 'required|max:255',
+            'additionalData' => 'max:255',
+            'neighborhood' => 'required|max:255',
+            'city' => 'required|max:255',
+            'state' => 'required|max:255'
         ]);
     }
 
@@ -62,10 +70,37 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // Criar Endereço
+        $address = Address::create([
+            'zipCode' => $data['zipCode'],
+            'street' => $data['street'],
+            'additionalData' => $data['additionalData'],
+            'neighborhood' => $data['neighborhood'],
+            'city' => $data['city'],
+            'state' => $data['state']
+        ]);
+
+        // Criação de Usuário
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => bcrypt($data['password']),
         ]);
+
+        // Anexar endereço ao usuário criado
+        $user->addresses()->attach($address->id);
+
+        return $user;
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        return view('pages.user.create');
     }
 }

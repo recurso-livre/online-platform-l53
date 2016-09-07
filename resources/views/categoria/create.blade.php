@@ -7,7 +7,7 @@
 <body>
     <h1>Criar Categoria</h1>
     
-    {!! Form::open(['url' => 'categoria/store']) !!}
+    {!! Form::open(['url' => route('auth.category.store')]) !!}
     
     @if($errors->any())
 		<ul>

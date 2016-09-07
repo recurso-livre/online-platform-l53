@@ -44,8 +44,16 @@ Route::group(['as' => 'user.'], function ()
 Route::group(['as' => 'guest.'], function ()
 {
     Route::post('acessar', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
+
+
     Route::get('cadastrar', ['as' => 'create', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
     Route::post('cadastrar', ['as' => 'create.post', 'uses' => 'Auth\RegisterController@register']);
+
+    // Rota para teste de pesquisa de recurso
+    Route::get("recurso/pesquisaTeste", ["as" => "resource.searchtest.view", "uses" => "ResourceController@searchTesteView"]);
+    Route::get("recurso/pesquisaResultado/{itens?}", ["as" => "resource.searchtest.view.result", "uses" => "ResourceController@searchTest"]);
+
+    Route::get('recurso/procurar/{category}/{query}/{page}', ['as' => 'resource.search', 'uses' => 'ResourceController@search']);
     
     Route::group(['prefix' => 'password',  'as' => 'password.'], function()
     {
@@ -55,7 +63,6 @@ Route::group(['as' => 'guest.'], function ()
         Route::get('reset/{token}', ['as' => 'reset.token', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
         
         Route::post('email', ['as' => 'email', 'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail']);
-        
     });
     
 });
@@ -66,11 +73,13 @@ Route::group(['as' => 'auth.'], function ()
     
     Route::group(['as' => 'resource.', 'prefix' => 'recurso'], function ()
     {
-        Route::get('cadastrar', ['as' => 'create', 'uses' => 'UserController@index']);
+        Route::get('cadastrar', ['as' => 'create', 'uses' => 'ResourceController@create']);
+        Route::post('cadastrar', ['as' => 'store', 'uses' => 'ResourceController@store']);
     });
     
     Route::group(['as' => 'category.', 'prefix' => 'categoria'], function ()
     {
-        Route::get('cadastrar', ['as' => 'create', 'uses' => 'UserController@index']);
+        Route::get('cadastrar', ['as' => 'create', 'uses' => 'CategoryController@create']);
+        Route::post('cadastrar', ['as' => 'store', 'uses' => 'CategoryController@store']);
     });
 });
