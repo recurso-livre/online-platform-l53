@@ -14,7 +14,7 @@ class ResourceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['search', 'searchTesteView', 'searchTest']]);
     }
 
     // Método para inclusão de recurso (criação)
@@ -46,6 +46,37 @@ class ResourceController extends Controller
 
         // Após cadastro, vá para a página inicial
         return redirect()->route("user.index");
+    }
+
+    public function search($category, $query, $page)
+    {
+        // Pesquisar por nome de recurso
+        $resources = Resource::search(null)->where('name', $query)->get();
+
+        $pages = $resources->chunk(12);
+        $count = count($pages);
+
+        if ($page < 1 || $page > $count) {
+            $page = 1;
+        }
+
+        if ($count !== 0) {
+            $resources = $pages[$page-1];
+        }
+
+        foreach ($resources as $resource) {
+            $resource->uriResources = json_decode($resource->uriResources);
+        }
+
+        $search = [
+            'category' => $category,
+            'query' => $query,
+            'page' => intval($page),
+            'pages' => $count,
+            'resources' => $resources
+        ];
+
+        return view("pages.resource.search", compact('search'));
     }
 
     public function searchTesteView()

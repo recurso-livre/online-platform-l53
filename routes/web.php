@@ -52,6 +52,8 @@ Route::group(['as' => 'guest.'], function ()
     // Rota para teste de pesquisa de recurso
     Route::get("recurso/pesquisaTeste", ["as" => "resource.searchtest.view", "uses" => "ResourceController@searchTesteView"]);
     Route::get("recurso/pesquisaResultado/{itens?}", ["as" => "resource.searchtest.view.result", "uses" => "ResourceController@searchTest"]);
+
+    Route::get('recurso/procurar/{category}/{query}/{page}', ['as' => 'resource.search', 'uses' => 'ResourceController@search']);
     
     Route::group(['prefix' => 'password',  'as' => 'password.'], function()
     {
