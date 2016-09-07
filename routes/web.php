@@ -48,6 +48,10 @@ Route::group(['as' => 'guest.'], function ()
 
     Route::get('cadastrar', ['as' => 'create', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
     Route::post('cadastrar', ['as' => 'create.post', 'uses' => 'Auth\RegisterController@register']);
+
+    // Rota para teste de pesquisa de recurso
+    Route::get("recurso/pesquisaTeste", ["as" => "resource.searchtest.view", "uses" => "ResourceController@searchTesteView"]);
+    Route::get("recurso/pesquisaResultado/{itens?}", ["as" => "resource.searchtest.view.result", "uses" => "ResourceController@searchTest"]);
     
     Route::group(['prefix' => 'password',  'as' => 'password.'], function()
     {
@@ -57,7 +61,6 @@ Route::group(['as' => 'guest.'], function ()
         Route::get('reset/{token}', ['as' => 'reset.token', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
         
         Route::post('email', ['as' => 'email', 'uses' => 'Auth\ForgotPasswordController@sendResetLinkEmail']);
-        
     });
     
 });

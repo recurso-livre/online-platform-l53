@@ -47,4 +47,20 @@ class ResourceController extends Controller
         // Após cadastro, vá para a página inicial
         return redirect()->route("user.index");
     }
+
+    public function searchTesteView()
+    {
+        return view("recurso.search");
+    }
+
+    public function searchTest(Request $request)
+    {
+        $input = $request->all();
+        $search = $input["searchField"];
+
+        // Realizar a pesquisa pelo nome do recurso
+        $resources = Resource::search(null)->where('name', $search)->get();
+
+        return view("recurso.search-result", compact("resources"));
+    }
 }
