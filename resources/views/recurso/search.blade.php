@@ -10,7 +10,7 @@
 <body>
     <h1>Pesquisa de Recursos</h1>
 
-    {{ Form::open(['method' => 'get', 'url' => route('guest.resource.search')]) }}
+    {{ Form::open(['method' => 'get', 'url' => route('guest.resource.searchtest.view.result', '/')]) }}
 
     {{ Form::text('searchField') }}
     {{ Form::submit('Pesquisar') }}

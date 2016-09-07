@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use Auth;
 use App\Http\Requests\ResourceRequest;
+use App\Http\Requests\ResourceSearchRequest;
 use App\Category;
 use App\Resource;
 
@@ -14,7 +15,7 @@ class ResourceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => ['search', 'searchTesteView', 'searchTest']]);
     }
 
     // Método para inclusão de recurso (criação)
@@ -46,5 +47,52 @@ class ResourceController extends Controller
 
         // Após cadastro, vá para a página inicial
         return redirect()->route("user.index");
+    }
+
+    public function search(ResourceSearchRequest $request, $category, $query, $page)
+    {
+        // Pesquisar por nome de recurso
+        $resources = Resource::search(null)->where('name', $query)->get();
+
+        $pages = $resources->chunk(12);
+        $count = count($pages);
+
+        if ($page < 1 || $page > $count) {
+            $page = 1;
+        }
+
+        if ($count !== 0) {
+            $resources = $pages[$page-1];
+        }
+
+        foreach ($resources as $resource) {
+            $resource->uriResources = json_decode($resource->uriResources);
+        }
+
+        $search = [
+            'category' => $category,
+            'query' => $query,
+            'page' => intval($page),
+            'pages' => $count,
+            'resources' => $resources
+        ];
+
+        return view("pages.resource.search", compact('search'));
+    }
+
+    public function searchTesteView()
+    {
+        return view("recurso.search");
+    }
+
+    public function searchTest(Request $request)
+    {
+        $input = $request->all();
+        $search = $input["searchField"];
+
+        // Realizar a pesquisa pelo nome do recurso
+        $resources = Resource::search(null)->where('name', $search)->get();
+
+        return view("recurso.search-result", compact("resources"));
     }
 }
