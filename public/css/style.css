@@ -279,6 +279,18 @@ ul {
   text-overflow: ellipsis;
 }
 
+.modal-header {
+    background-color: #1f82c3;
+}
+
+.modal-title {
+    color: white;
+}
+
+.modal-body, .modal-footer {
+    background-color: aliceblue;
+}
+
 /* ----------- Bootstrap ----------- */
 
 .modal-open {

@@ -38,7 +38,7 @@
           </li>
         @else
           <li>
-            <a class="rl-navbar-btn" href="#login" id="open-login">
+            <a class="rl-navbar-btn" href="#login-modal" data-toggle="modal" data-target="#login-modal">
               Acessar&nbsp;&nbsp;
               <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
             </a>
@@ -78,22 +78,22 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title">Acessar minha conta...</h4>
+            <h4 class="modal-title">Acessar minha conta</h4>
           </div>
           <div class="modal-body">
             <div class="row">
               <div class="col-md-12" style="margin-bottom: 8px">
                 <label>Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Email" />
+                <input type="email" name="email" class="form-control" placeholder="Email" required />
               </div>
               <div class="col-md-12">
                 <label>Senha</label>
-                <input type="password" name="password" class="form-control" placeholder="Senha" />
+                <input type="password" name="password" class="form-control" placeholder="Senha" required />
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <a href="#" class="pull-left">Esqueci minha senha</a>
+                <a href="#em-breve" class="pull-left">Esqueci minha senha</a>
                 
               </div>
             </div>
@@ -115,10 +115,6 @@
         $('#login-modal').modal('show');
       });
     @endif
-    
-      $('#open-login').click(function () {
-        $('#login-modal').modal('show');
-      });
     </script>
   @endpush
 @endif
