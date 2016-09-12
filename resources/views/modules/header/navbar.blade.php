@@ -57,68 +57,69 @@
 </nav>
 <div class="rl-fixed-navbar-space"></div>
 
-<!-- Modal -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
-        @if($errors->any())
-          <div class="alert alert-danger modal-dialog modal-sm" role="alert">
-        		<ul>
-        			@foreach($errors->all() as $error)
-        				<li>{{ $error }}</li>
-        			@endforeach
-        		</ul>
-        	</div>
-        @endif
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      
-      <form method="post" action="{{ route('guest.login.post') }}">
-        {{ csrf_field() }}
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title">Acessar minha conta...</h4>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-12" style="margin-bottom: 8px">
-              <label>Email</label>
-              <input type="email" name="email" class="form-control" placeholder="Email" />
+@if (Auth::guest())
+  <!-- Modal -->
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+          @if($errors->has('email'))
+            <div class="alert alert-danger modal-dialog modal-sm" role="alert">
+          		<ul>
+          			@foreach($errors->all() as $error)
+          				<li>{{ $error }}</li>
+          			@endforeach
+          		</ul>
+          	</div>
+          @endif
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        
+        <form method="post" action="{{ route('guest.login.post') }}">
+          {{ csrf_field() }}
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">Acessar minha conta...</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12" style="margin-bottom: 8px">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Email" />
+              </div>
+              <div class="col-md-12">
+                <label>Senha</label>
+                <input type="password" name="password" class="form-control" placeholder="Senha" />
+              </div>
             </div>
-            <div class="col-md-12">
-              <label>Senha</label>
-              <input type="password" name="password" class="form-control" placeholder="Senha" />
+            <div class="row">
+              <div class="col-md-12">
+                <a href="#" class="pull-left">Esqueci minha senha</a>
+                
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <a href="#" class="pull-left">Esqueci minha senha</a>
-              
-            </div>
+          <div class="modal-footer">
+            <a href="/cadastrar" class="btn btn-primary pull-left">Cadastrar agora</a>
+            <button type="submit" id="modal-btn" class="btn btn-success">Entrar</button>
           </div>
-        </div>
-        <div class="modal-footer">
-          <a href="/cadastrar" class="btn btn-primary pull-left">Cadastrar agora</a>
-          <button type="submit" id="modal-btn" class="btn btn-success">Entrar</button>
-        </div>
-      </form>
-      
+        </form>
+        
+      </div>
     </div>
   </div>
-</div>
 
-@push('posscripts')
-  <script>
-    $(function () {
-      var hash = window.location.hash;
-      console.log(hash);
-      if (hash === '#login') {
+  @push('posscripts')
+    <script>
+    @if($errors->has('email'))
+      $(function() {
         $('#login-modal').modal('show');
-      }
-    });
+      });
+    @endif
     
-    $('#open-login').click(function () {
-      $('#login-modal').modal('show');
-    });
-  </script>
-@endpush
+      $('#open-login').click(function () {
+        $('#login-modal').modal('show');
+      });
+    </script>
+  @endpush
+@endif
+
