@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+use Log;
 use App\User;
 use App\Address;
 use Validator;
@@ -41,25 +43,35 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Handle a registration request for the application.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    protected function validator(array $data)
+    public function register(Request $request)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:2|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'phone' => 'required|max:17',
+            'phone' => 'required|min:6|max:20|regex:/^\(?[0-9]{2}\)?\s?[0-9]?\s?[0-9]{4}-?[0-9]{4}$/i',
             'password' => 'required|min:6|max:51|confirmed',
-            'zipCode' => 'required|max:255',
+            'zipCode' => 'required|min:5|max:40|regex:/^[0-9]{3,8}-[0-9]{3}$/i',
             'street' => 'required|max:255',
             'additionalData' => 'max:255',
             'neighborhood' => 'required|max:255',
             'city' => 'required|max:255',
             'state' => 'required|max:255'
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('guest.create')
+                ->withErrors($validator, 'guest')
+                ->withInput();
+        }
+
+        $this->guard()->login($this->create($request->all()));
+
+        return redirect($this->redirectPath());
     }
 
     /**

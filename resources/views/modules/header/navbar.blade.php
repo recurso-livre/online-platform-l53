@@ -63,9 +63,7 @@
           @if($errors->has('email'))
             <div class="alert alert-danger modal-dialog modal-sm" role="alert">
           		<ul>
-          			@foreach($errors->all() as $error)
-          				<li>{{ $error }}</li>
-          			@endforeach
+          			<li>{{ $errors->first('email') }}</li>
           		</ul>
           	</div>
           @endif
@@ -84,11 +82,11 @@
             <div class="row">
               <div class="col-md-12" style="margin-bottom: 8px">
                 <label>Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Email" required />
+                <input type="email" name="email" class="form-control" placeholder="Email" required/>
               </div>
               <div class="col-md-12">
                 <label>Senha</label>
-                <input type="password" name="password" class="form-control" placeholder="Senha" required />
+                <input type="password" name="password" class="form-control" placeholder="Senha"  required/>
               </div>
             </div>
             <div class="row">
