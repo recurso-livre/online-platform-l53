@@ -25,7 +25,7 @@
         <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">*</span>
-                <input type="email" value="{{ old('email') }}" name="email" class="form-control" placeholder="Email" required>
+                <input type="email" name="email" class="form-control" placeholder="Email" required>
             </div>
         </div>
         <div class="col-md-6">
