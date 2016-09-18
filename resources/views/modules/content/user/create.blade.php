@@ -3,17 +3,9 @@
 <form class="form-horizontal" role="form" method="POST" action="{{ route('guest.create.post') }}">
     {{ csrf_field() }}
 
-    {{--@if(count($errors->get('guest.*')) > 0)--}}
-        {{--<div class="alert alert-danger">--}}
-            {{--@foreach($errors->get('guest.*') as $message)--}}
-                {{--<li>{{ $message[0] }}</li>--}}
-            {{--@endforeach--}}
-        {{--</div>--}}
-    {{--@endif--}}
-
-    @if(count($errors) > 0)
+    @if(count($errors->guest) > 0)
         <div class="alert alert-danger">
-            @foreach($errors->all() as $error)
+            @foreach($errors->guest->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
         </div>
