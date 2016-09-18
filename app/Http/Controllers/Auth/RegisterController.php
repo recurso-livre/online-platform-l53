@@ -50,16 +50,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'guest.name' => 'required|min:2|max:255',
-            'guest.email' => 'required|email|max:255|unique:users',
-            'guest.phone' => 'required|min:6|max:20|regex:/^\(?[0-9]{2}\)?\s?[0-9]?\s?[0-9]{4}-?[0-9]{4}$/i',
-            'guest.password' => 'required|min:6|max:51|confirmed',
-            'guest.zipCode' => 'required|min:5|max:40|regex:/^[0-9]{3,8}-[0-9]{3}$/i',
-            'guest.street' => 'required|max:255',
-            'guest.additionalData' => 'max:255',
-            'guest.neighborhood' => 'required|max:255',
-            'guest.city' => 'required|max:255',
-            'guest.state' => 'required|max:255'
+            'name' => 'required|min:2|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'phone' => 'required|min:6|max:20|regex:/^\(?[0-9]{2}\)?\s?[0-9]?\s?[0-9]{4}-?[0-9]{4}$/i',
+            'password' => 'required|min:6|max:51|confirmed',
+            'zipCode' => 'required|min:5|max:40|regex:/^[0-9]{3,8}-[0-9]{3}$/i',
+            'street' => 'required|max:255',
+            'additionalData' => 'max:255',
+            'neighborhood' => 'required|max:255',
+            'city' => 'required|max:255',
+            'state' => 'required|max:255'
         ]);
     }
 
@@ -84,9 +84,9 @@ class RegisterController extends Controller
         // Criação de Usuário
         $user = User::create([
             'name' => $data['name'],
-            'email' => $data['guest_email'],
+            'email' => $data['email'],
             'phone' => $data['phone'],
-            'password' => bcrypt($data['guest_password']),
+            'password' => bcrypt($data['password']),
         ]);
 
         // Anexar endereço ao usuário criado

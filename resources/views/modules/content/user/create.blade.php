@@ -3,10 +3,18 @@
 <form class="form-horizontal" role="form" method="POST" action="{{ route('guest.create.post') }}">
     {{ csrf_field() }}
 
-    @if(count($errors->get('guest.*')) > 0)
+    {{--@if(count($errors->get('guest.*')) > 0)--}}
+        {{--<div class="alert alert-danger">--}}
+            {{--@foreach($errors->get('guest.*') as $message)--}}
+                {{--<li>{{ $message[0] }}</li>--}}
+            {{--@endforeach--}}
+        {{--</div>--}}
+    {{--@endif--}}
+
+    @if(count($errors) > 0)
         <div class="alert alert-danger">
-            @foreach($errors->get('guest.*') as $message)
-                <li>{{ $message[0] }}</li>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
             @endforeach
         </div>
     @endif
@@ -25,8 +33,7 @@
         <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">*</span>
-                <input type="email" value="{{ old('guest.email') }}" name="guest.email" class="form-control"
-                       placeholder="Email">
+                <input type="email" value="{{ old('email') }}" name="email" class="form-control" placeholder="Email">
             </div>
         </div>
         <div class="col-md-6">
@@ -41,7 +48,7 @@
         <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon">*</span>
-                <input type="password" name="guest.password" class="form-control" placeholder="Senha">
+                <input type="password" name="password" class="form-control" placeholder="Senha">
             </div>
         </div>
         <div class="col-md-6">
@@ -64,15 +71,13 @@
         <div class="col-md-6">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">*</span>
-                <input id="user-state" value="{{ old('state') }}" name="state" type="text" class="form-control"
-                       placeholder="Estado">
+                <input id="user-state" value="{{ old('state') }}" name="state" type="text" class="form-control" placeholder="Estado">
             </div>
         </div>
         <div class="col-md-4">
             <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1">*</span>
-                <input id="user-city" value="{{ old('city') }}" name="city" type="text" class="form-control"
-                       placeholder="Cidade">
+                <input id="user-city" value="{{ old('city') }}" name="city" type="text" class="form-control" placeholder="Cidade">
             </div>
         </div>
     </div>
