@@ -28,7 +28,7 @@ class ResourceRequest extends FormRequest
     {
         return [
             "name"                  => "required|min:5|max:255",
-            "technicalDescription"  => "max:10000",
+            "technicalDescription"  => "required|max:10000",
             "informalDescription"   => "max:10000"
         ];
     }
