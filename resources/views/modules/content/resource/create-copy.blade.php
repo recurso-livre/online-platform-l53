@@ -50,8 +50,7 @@
                   {!! Form::textarea('informalDescription', null, [
                     'class'=>'form-control margin-tb-20', 
                     'placeholder'=>'Informação Livre', 
-                    'rows'=>'15',
-                    'required'=>'true'
+                    'rows'=>'15'
                   ]) !!}
                 </div>
               </div>
