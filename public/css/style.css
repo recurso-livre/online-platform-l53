@@ -253,7 +253,7 @@ ul {
 
 .material-btn {
     display: block;
-    background-color: #66c0b7;
+    background-color: #1f80c0;
     padding: 12px;
     margin: 15px -20px -20px;
     color: #fefefe !important;
@@ -269,7 +269,7 @@ ul {
 }
 
 .material-btn:hover {
-    background-color: #66aea6;
+    background-color: #0d69a7;
 }
 
 .truncate {
@@ -277,6 +277,18 @@ ul {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.modal-header {
+    background-color: #1f82c3;
+}
+
+.modal-title {
+    color: white;
+}
+
+.modal-body, .modal-footer {
+    background-color: aliceblue;
 }
 
 /* ----------- Bootstrap ----------- */

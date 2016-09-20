@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+use Log;
 use App\User;
+use App\Address;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -40,18 +43,35 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Handle a registration request for the application.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    protected function validator(array $data)
+    public function register(Request $request)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:2|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'phone' => 'required|min:6|max:20|regex:/^(\+[0-9]{1,2}[\s-]?)?\(?[0-9]{1,4}\)?[\s-]?([0-9][\s-]?)?[0-9]{3,4}\s?-?\s?[0-9]{4}$/i',
+            'password' => 'required|min:6|max:51|confirmed',
+            'zipCode' => 'required|min:5|max:40|regex:/^[0-9]{3,8}-[0-9]{3}$/i',
+            'street' => 'required|max:255',
+            'additionalData' => 'max:255',
+            'neighborhood' => 'required|max:255',
+            'city' => 'required|max:255',
+            'state' => 'required|max:255'
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('guest.create')
+                ->withErrors($validator, 'guest')
+                ->withInput();
+        }
+
+        $this->guard()->login($this->create($request->all()));
+
+        return redirect($this->redirectPath());
     }
 
     /**
@@ -62,10 +82,37 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // Criar Endereço
+        $address = Address::create([
+            'zipCode' => $data['zipCode'],
+            'street' => $data['street'],
+            'additionalData' => $data['additionalData'],
+            'neighborhood' => $data['neighborhood'],
+            'city' => $data['city'],
+            'state' => $data['state']
+        ]);
+
+        // Criação de Usuário
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => bcrypt($data['password']),
         ]);
+
+        // Anexar endereço ao usuário criado
+        $user->addresses()->attach($address->id);
+
+        return $user;
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        return view('pages.user.create');
     }
 }
