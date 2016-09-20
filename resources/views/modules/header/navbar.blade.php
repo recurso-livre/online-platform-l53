@@ -18,7 +18,7 @@
           <div class="input-group navbar-search">
             <input id="search-query" type="text" class="form-control" placeholder="Procurar...">
             <span class="input-group-btn">
-              <button id="search-btn" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              <button id="search-btn" class="btn btn-default" type="submit" style="background: white;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             </span>
           </div><!-- /input-group -->
         </form>
@@ -92,7 +92,7 @@
             </div>
             <div class="row">
               <div class="col-md-12">
-                <a href="#em-breve" class="pull-left">Esqueci minha senha</a>
+                <!--<a href="#em-breve" class="pull-left">Esqueci minha senha</a>-->
                 
               </div>
             </div>
