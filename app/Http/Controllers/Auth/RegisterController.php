@@ -53,7 +53,7 @@ class RegisterController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|min:2|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'phone' => 'required|min:6|max:20|regex:/^\(?[0-9]{2}\)?\s?[0-9]?\s?[0-9]{4}-?[0-9]{4}$/i',
+            'phone' => 'required|min:6|max:20|regex:/^(\+[0-9]{1,2}[\s-]?)?\(?[0-9]{1,4}\)?[\s-]?([0-9][\s-]?)?[0-9]{3,4}\s?-?\s?[0-9]{4}$/i',
             'password' => 'required|min:6|max:51|confirmed',
             'zipCode' => 'required|min:5|max:40|regex:/^[0-9]{3,8}-[0-9]{3}$/i',
             'street' => 'required|max:255',
