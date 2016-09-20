@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'As credênciais informadas estão incorretas.',
+    'failed' => 'As credenciais informadas estão incorretas.',
     'throttle' => 'Você tentou muitas vezes. Por favor, espere :seconds segundos.',
 
 ];

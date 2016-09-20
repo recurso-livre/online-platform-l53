@@ -42,8 +42,7 @@
                   {!! Form::textarea('technicalDescription', null, [
                     'class'=>'form-control margin-tb-20', 
                     'placeholder'=>'Informação Técnica', 
-                    'rows'=>'15', 
-                    'required'=>'true'
+                    'rows'=>'15'
                   ]) !!}
                 </div>
                 <div id="informal" class="tab-pane fade">

@@ -21,7 +21,7 @@
                     <div class="col-sm-8 text-description">{{ $texts[0]['description'] }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12"><a href="{{ $texts[0]['link'] }}">Ler mais...</a></div>
+                    <div class="col-sm-12"><a href="{{ $texts[0]['link'] }}">Leia mais</a></div>
                 </div>
             </div>
             
@@ -43,7 +43,7 @@
                         <div class="col-sm-8 text-description">{{ $texts[1]['description'] }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12"><a href="{{ $texts[1]['link'] }}">Ler mais...</a></div>
+                        <div class="col-sm-12"><a href="{{ $texts[1]['link'] }}">Leia mais</a></div>
                     </div>
                 </div>
             @endif
@@ -65,7 +65,7 @@
                         <div class="col-sm-8 text-description">{{ $texts[2]['description'] }}</div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12"><a href="{{ $texts[2]['link'] }}">Ler mais...</a></div>
+                        <div class="col-sm-12"><a href="{{ $texts[2]['link'] }}">Leia mais</a></div>
                     </div>
                 </div>
             @endif

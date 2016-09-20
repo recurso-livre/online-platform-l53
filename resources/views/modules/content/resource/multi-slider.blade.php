@@ -18,7 +18,7 @@
                                 <div class="col-md-12">{{ mb_strimwidth($product['description'], 0, 70, "...") }}</div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12"><a class="pull-right" style="margin-right: 20px;" href="{{ $product['link'] }}">Ler mais...</a></div>
+                                <div class="col-md-12"><a class="pull-right" style="margin-right: 20px;" href="{{ $product['link'] }}">Leia mais</a></div>
                             </div>
                         </div>
                     </li>
