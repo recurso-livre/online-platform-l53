@@ -127,11 +127,14 @@ return [
         'additionalData' => 'Complemento',
         'street' => 'Endereço',
         
-        //Resource
-        /// name
+        // Resource
         'category_id' => 'Categoria',
         'technicalDescription' => 'Informação Técnica',
-        'informalDescription' => 'Informação Livre'
+        'informalDescription' => 'Informação Livre',
+        
+        // Budget
+        'file' => 'Link',
+        'message' => 'Mensagem',
     ],
 
 ];

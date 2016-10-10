@@ -33,20 +33,20 @@
           <li>
             <a class="rl-navbar-btn" href="/logout">
               Sair&nbsp;&nbsp;
-              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+              <i class="fa fa-sign-out"></i>
             </a>
           </li>
         @else
           <li>
             <a class="rl-navbar-btn" href="#login-modal" data-toggle="modal" data-target="#login-modal">
               Acessar&nbsp;&nbsp;
-              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+              <i class="fa fa-sign-in"></i>
             </a>
           </li>
           <li>
             <a class="rl-navbar-btn" href="{{ route('guest.create') }}">
               Cadastrar&nbsp;&nbsp;
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <i class="fa fa-user"></i>
             </a>
           </li>
         @endif
@@ -109,11 +109,11 @@
 
   @push('posscripts')
     <script>
-    @if($errors->has('email'))
-      $(function() {
-        $('#login-modal').modal('show');
-      });
-    @endif
+      @if($errors->has('email'))
+        $(function() {
+          $('#login-modal').modal('show');
+        });
+      @endif
     </script>
   @endpush
 @endif

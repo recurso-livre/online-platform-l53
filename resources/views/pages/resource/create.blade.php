@@ -15,7 +15,7 @@
 
 @section('content')
     <div class="container margin-tb-40">
-        @include('modules.content.resource.create-copy')
+        @include('modules.content.resource.create')
     </div>
 @endsection
 

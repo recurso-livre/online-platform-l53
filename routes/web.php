@@ -87,4 +87,9 @@ Route::group(['as' => 'auth.'], function ()
         Route::get('cadastrar', ['as' => 'create', 'uses' => 'CategoryController@create']);
         Route::post('cadastrar', ['as' => 'store', 'uses' => 'CategoryController@store']);
     });
+    
+    Route::group(['as' => 'budget.', 'prefix' => 'orcamento'], function ()
+    {
+        Route::post('cadastrar', ['as' => 'store', 'uses' => 'BudgetController@store']);
+    });
 });

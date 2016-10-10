@@ -24,11 +24,11 @@ class CreateBudgetsTable extends Migration
             $table->integer('resource_id')->unsigned();
             $table->foreign('resource_id')->references('id')->on('resources');
             
-            // Descricao do orçamento
-            $table->string('descricao', 5000);
+            // Mensagem do orçamento
+            $table->string('message', 5000);
             
             // Arquivo do orçamento (JSON)
-            $table->string('arquivo', 256);
+            $table->string('file', 256);
             
             $table->timestamps();
         });

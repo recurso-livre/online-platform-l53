@@ -12,6 +12,7 @@
 @endsection
 
 @section('content')
+
     <div class="container-fluid dashboard-bar rl-shadow-1">
         @include('modules.content.dashboard.master')
     </div>

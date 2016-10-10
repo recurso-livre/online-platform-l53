@@ -32,8 +32,8 @@
                 ])
             </div>
         </div>
-        
     </div>
+    @include('modules.content.budget.create-modal')
 @endsection
 
 @section('footer')
