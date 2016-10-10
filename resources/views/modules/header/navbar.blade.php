@@ -26,7 +26,7 @@
       <ul class="nav navbar-nav navbar-right">
         @if (Auth::check())
           <li>
-            <a class="rl-navbar-btn" href="#">
+            <a class="rl-navbar-btn" href="{{ route('auth.dashboard.index') }}">
               <span class="rl-navbar-btn">{{ mb_strimwidth(Auth::user()->name, 0, 30, ".") }}</span>
             </a>
           </li>

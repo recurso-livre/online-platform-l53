@@ -71,6 +71,11 @@ Route::group(['as' => 'auth.'], function ()
 {
     Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
     
+    Route::group(['as' => 'dashboard.', 'prefix' => 'dashboard'], function ()
+    {
+        Route::get('/', ['as' => 'index', 'uses' => 'DashboardController@index']);
+    });
+    
     Route::group(['as' => 'resource.', 'prefix' => 'recurso'], function ()
     {
         Route::get('cadastrar', ['as' => 'create', 'uses' => 'ResourceController@create']);

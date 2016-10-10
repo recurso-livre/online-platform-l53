@@ -9,7 +9,7 @@
                     <h3>Endereço</h3>
                     <ul>
                         <li>
-                            <i class="fa fa-map-marker"></i> Avenida Comissário José Dantas de Melo, nº 21
+                            Avenida Comissário José Dantas de Melo, nº 21
                         Boa Vista I - Vila Velha, ES
                         </li>
                     </ul>
@@ -19,8 +19,8 @@
                 <div class="footer-contact">
                     <h3>Contato</h3>
                     <ul>
-                        <li><i class="fa fa-phone"></i> <strong>Telefone:</strong> (xx) XXXX-XXXX</li>
-                        <li><i class="fa fa-mobile"></i> <strong>Celular:</strong> (xx) 9 XXXX-XXXX</li>
+                        <li><strong>Telefone:</strong> (xx) XXXX-XXXX</li>
+                        <li><strong>Celular:</strong> (xx) 9 XXXX-XXXX</li>
                     </ul>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="footer-contact">
                     <h3>Email</h3>
                     <ul>
-                        <li><a href="mailto:contato@recursolivre.com.br"><i class="fa fa-envelope"></i> contato@recursolivre.com.br</a></li>
+                        <li><a href="mailto:contato@recursolivre.com.br">contato@recursolivre.com.br</a></li>
                     </ul>
                 </div>
             </div>
