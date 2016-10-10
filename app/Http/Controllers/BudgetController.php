@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Auth;
+use Auth;
 use App\Http\Requests\BudgetRequest;
 use App\Budget;
+use Log;
 
 class BudgetController extends Controller
 {
@@ -23,16 +24,13 @@ class BudgetController extends Controller
         
     }
     
-    public function store(BudgetRequest $request, $resource_id)
+    public function store(BudgetRequest $request)
     {
         $input = $request->all();
         
         // Obter id do usuário logado
         $input["user_id"] = Auth::user()->id;
-        
-        // Obter id do recurso a ser solicitado
-        $input["resource_id"] = $resource_id;
-        
+
         // Criar orçamento
         Budget::create($input);
         

@@ -9,8 +9,8 @@ class Budget extends Model
     protected $fillable = [
         'user_id',
         'resource_id',
-        'descricao',
-        'arquivo'
+        'message',
+        'file'
     ];
     
     // Obter o usuário que solicitou o orçamento (Budget -> User)

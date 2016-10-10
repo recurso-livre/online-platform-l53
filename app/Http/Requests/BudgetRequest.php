@@ -24,8 +24,8 @@ class BudgetRequest extends FormRequest
     public function rules()
     {
         return [
-            'descricao' => 'required|max:5000',
-            'arquivo'   => 'required|max:256|json'
+            'message' => 'required|max:5000',
+            'file'   => 'required|max:256'
         ];
     }
 }

@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="col-md-12" style="text-align:center;">
-                    <a href="/#/recurso/exibir/{{ $resource->idResource }}" class="material-btn">Solicitar Orçamento</a>
+                    <a href="#" class="material-btn request-budget" resource-id="{{ $resource->id }}">Solicitar Orçamento</a>
             </div>
             <!--<div class="col-md-12">-->
             <!--    <div class="row">-->
