@@ -91,5 +91,6 @@ Route::group(['as' => 'auth.'], function ()
     Route::group(['as' => 'budget.', 'prefix' => 'orcamento'], function ()
     {
         Route::post('cadastrar', ['as' => 'store', 'uses' => 'BudgetController@store']);
+        Route::get('obterOrcamentosRecebidos', ['as' => 'getBudgetReceived', 'uses' => 'BudgetController@getBudgetReceived']);
     });
 });

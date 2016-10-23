@@ -9,6 +9,7 @@ use App\Http\Requests;
 use Auth;
 use App\Http\Requests\BudgetRequest;
 use App\Budget;
+use App\Resource;
 use Log;
 
 class BudgetController extends Controller
@@ -35,6 +36,13 @@ class BudgetController extends Controller
         Budget::create($input);
         
         return redirect()->route("user.index");
+    }
+    
+    public function getBudgetReceived()
+    {
+        //$lista_resources = Resource::where('user_id', '=', Auth::user()->id);
+        
+        return '';
     }
     
     
