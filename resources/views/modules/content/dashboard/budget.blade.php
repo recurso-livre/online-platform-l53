@@ -96,6 +96,7 @@
                 appId: 'D21CA9FE-72C1-43A8-A436-3A6444C94F70'
             });
             
+            
             sb.connect({{ Auth::user()->id }}, function(usr, error) {
                 if(!error){
                     loggedUser = usr;
