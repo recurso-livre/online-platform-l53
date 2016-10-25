@@ -37,13 +37,4 @@ class BudgetController extends Controller
         
         return redirect()->route("user.index");
     }
-    
-    public function getBudgetReceived()
-    {
-        //$lista_resources = Resource::where('user_id', '=', Auth::user()->id);
-        
-        return '';
-    }
-    
-    
 }

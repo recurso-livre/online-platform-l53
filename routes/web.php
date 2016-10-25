@@ -74,6 +74,7 @@ Route::group(['as' => 'auth.'], function ()
     Route::group(['as' => 'dashboard.', 'prefix' => 'dashboard'], function ()
     {
         Route::get('/', ['as' => 'index', 'uses' => 'DashboardController@index']);
+        Route::get('ordered', ['as' => 'viewAll', 'uses' => 'DashboardController@viewAllBudgetsOrdered']);
     });
     
     Route::group(['as' => 'resource.', 'prefix' => 'recurso'], function ()
@@ -91,6 +92,5 @@ Route::group(['as' => 'auth.'], function ()
     Route::group(['as' => 'budget.', 'prefix' => 'orcamento'], function ()
     {
         Route::post('cadastrar', ['as' => 'store', 'uses' => 'BudgetController@store']);
-        Route::get('obterOrcamentosRecebidos', ['as' => 'getBudgetReceived', 'uses' => 'BudgetController@getBudgetReceived']);
     });
 });
