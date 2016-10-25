@@ -9,6 +9,7 @@ use App\Http\Requests;
 use Auth;
 use App\Http\Requests\BudgetRequest;
 use App\Budget;
+use App\Resource;
 use Log;
 
 class BudgetController extends Controller
@@ -36,6 +37,4 @@ class BudgetController extends Controller
         
         return redirect()->route("user.index");
     }
-    
-    
 }

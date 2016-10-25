@@ -74,6 +74,7 @@ Route::group(['as' => 'auth.'], function ()
     Route::group(['as' => 'dashboard.', 'prefix' => 'dashboard'], function ()
     {
         Route::get('/', ['as' => 'index', 'uses' => 'DashboardController@index']);
+        Route::get('ordered', ['as' => 'viewAll', 'uses' => 'DashboardController@viewAllBudgetsOrdered']);
     });
     
     Route::group(['as' => 'resource.', 'prefix' => 'recurso'], function ()
