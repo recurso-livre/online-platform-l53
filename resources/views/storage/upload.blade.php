@@ -12,5 +12,19 @@
     {{ Form::submit('Enviar arquivo') }}
     {{ Form::close() }}
     
+    <hr/>
+    
+    <ul>
+        @foreach($ls as $filename)
+            <li>{{ $filename }} :: <a href="{{ Storage::url($filename) }}">{{ Storage::url($filename) }}</a>
+                {{ Form::open(['url' => route('auth.storage.delete')]) }}
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type="hidden" name="del_filename" value="{{ $filename }}">
+                {{ Form::submit('Excluir') }}
+                {{ Form::close() }}
+            </li>
+        @endforeach
+    </ul>
+    
 </body>
 </html>

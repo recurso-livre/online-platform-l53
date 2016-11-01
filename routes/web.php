@@ -96,7 +96,11 @@ Route::group(['as' => 'auth.'], function ()
     
     Route::group(['as' => 'storage.', 'prefix' => 'storage'], function ()
     {
-        Route::get('upload', ['as' => 'uploadView', 'uses' => 'StorageController@uploadPage']);
+        Route::get('upload', ['as' => 'uploadView', 'uses' => 'StorageController@uploadPage']);     // ROTA DE EXEMPLO PARA VIEW
         Route::post('upload', ['as' => 'upload', 'uses' => 'StorageController@upload']);
+        
+        // Rota de exemplo para deletar arquivo
+        Route::delete('upload', ['as' => 'delete', 'uses' => 'StorageController@deleteFile']);
+        
     });
 });
