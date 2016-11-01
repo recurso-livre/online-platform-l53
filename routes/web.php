@@ -93,4 +93,10 @@ Route::group(['as' => 'auth.'], function ()
     {
         Route::post('cadastrar', ['as' => 'store', 'uses' => 'BudgetController@store']);
     });
+    
+    Route::group(['as' => 'storage.', 'prefix' => 'storage'], function ()
+    {
+        Route::get('upload', ['as' => 'uploadView', 'uses' => 'StorageController@uploadPage']);
+        Route::post('upload', ['as' => 'upload', 'uses' => 'StorageController@upload']);
+    });
 });
