@@ -24,7 +24,7 @@ class StorageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'file' => 'required'        // 'mimes:txt,jpg,png' para restringir tipo de arquivo
         ];
     }
 }

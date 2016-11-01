@@ -7,6 +7,11 @@
 <body>
     <h1>Upload de Arquivo</h1>
     
+    @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
+    <br/>
+    
     {{ Form::open(['url' => route('auth.storage.upload'), 'enctype' => 'multipart/form-data']) }}
     {{ Form::file('file') }}
     {{ Form::submit('Enviar arquivo') }}
