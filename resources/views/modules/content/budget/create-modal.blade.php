@@ -10,7 +10,7 @@
     @endif
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <form method="post" name="login" action="{{ route('auth.budget.store') }}">
+        <form method="post" name="login" action="{{ route('auth.budget.store') }}" enctype="multipart/form-data">
           {{ csrf_field() }}
           <input type="hidden" name="resource_id" id="budget-id" />
           <div class="modal-header">
@@ -26,8 +26,9 @@
                 <textarea name="message" class="form-control" rows="8" placeholder="Mensagem" id="budget-message" required></textarea>
               </div>
               <div class="col-md-12">
-                <label>Link externo:</label>
-                <input type="text" name="file" class="form-control" placeholder="Link" id="budget-file" />
+                <!--<label>Link externo:</label>
+                <input type="text" name="file" class="form-control" placeholder="Link" id="budget-file" />-->
+                {{ Form::file('file') }}
               </div>
             </div>
           </div>

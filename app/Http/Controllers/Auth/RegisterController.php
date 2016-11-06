@@ -9,6 +9,7 @@ use App\Address;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -102,6 +103,10 @@ class RegisterController extends Controller
 
         // Anexar endereço ao usuário criado
         $user->addresses()->attach($address->id);
+        
+        // Criar arquivo do usuário no S3. Nome da pasta = id do usuário no BD
+        // DEBUG
+        Storage::put("$user->id"."/meta", $user->toJson(), 'public');
 
         return $user;
     }

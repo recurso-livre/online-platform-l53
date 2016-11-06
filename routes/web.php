@@ -92,6 +92,7 @@ Route::group(['as' => 'auth.'], function ()
     Route::group(['as' => 'budget.', 'prefix' => 'orcamento'], function ()
     {
         Route::post('cadastrar', ['as' => 'store', 'uses' => 'BudgetController@store']);
+        Route::post('upload', ['as' => 'upload', 'uses' => 'StorageController@uploadBudget']);
     });
     
     Route::group(['as' => 'storage.', 'prefix' => 'storage'], function ()
@@ -101,6 +102,5 @@ Route::group(['as' => 'auth.'], function ()
         
         // Rota de exemplo para deletar arquivo
         Route::delete('upload', ['as' => 'delete', 'uses' => 'StorageController@deleteFile']);
-        
     });
 });

@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\StorageRequest;
 use Illuminate\Support\Facades\Storage;
+use App\User;
 
 class StorageController extends Controller
 {
-    public function __construct()
+    
+    public function __construct(User $user)
     {
         $this->middleware('auth');
     }
