@@ -52,7 +52,7 @@ class ResourceController extends Controller
     public function search(ResourceSearchRequest $request, $category, $query, $page)
     {
         // Pesquisar por nome de recurso
-        $resources = Resource::search(null)->where('name', $query)->get();
+        $resources = Resource::search($query)->get();
 
         $pages = $resources->chunk(12);
         $count = count($pages);
