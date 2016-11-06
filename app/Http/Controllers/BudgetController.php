@@ -57,7 +57,7 @@ class BudgetController extends Controller
     public function uploadBudgetValidation($request)
     {
         $validator = Validator::make(['file' => $request->file], [
-            'file'  => 'required'
+            'file'  => 'required|mimes:txt|max:10240'   // max:<kilobytes>
         ])->validate();
 
         return $validator;
