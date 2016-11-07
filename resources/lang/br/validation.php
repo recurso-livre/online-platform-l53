@@ -133,7 +133,7 @@ return [
         'informalDescription' => 'Informação Livre',
         
         // Budget
-        'file' => 'Link',
+        'file' => 'Arquivo',
         'message' => 'Mensagem',
     ],
 

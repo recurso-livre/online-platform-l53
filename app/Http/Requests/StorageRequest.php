@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BudgetRequest extends FormRequest
+class StorageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class BudgetRequest extends FormRequest
     public function rules()
     {
         return [
-            'message' => 'required|max:5000',
+            'file' => 'required'        // 'mimes:txt,jpg,png' para restringir tipo de arquivo
         ];
     }
 }

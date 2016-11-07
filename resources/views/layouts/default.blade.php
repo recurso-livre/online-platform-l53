@@ -13,5 +13,6 @@
 @push('posscripts')
     <script type="text/javascript" src="{{ asset('vendor/jquery/jquery-3.1.0.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/bootstrap-filestyle/bootstrap-filestyle.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 @endpush

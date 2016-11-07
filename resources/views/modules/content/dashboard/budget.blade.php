@@ -15,7 +15,7 @@
                           <div class="col-xs-1"><span class="badge" id="budget-{{ Auth::user()->id }}_{{ $budget->resource->user->id }}_{{ $budget->id }}">R</span></div>
                           <div class="col-xs-11">
                             <span class="title">{{ $budget->resource->name }}</span>
-                            <div class="name">{{ $budget->user->name }}</div>
+                            <div class="name">{{ $budget->resource->user->name }}</div>
                           </div>
                           <!--<div class="col-xs-1"><i class="pull-right fa fa-paper-plane fa-2x"></i></div>-->
                         </div>
@@ -26,7 +26,7 @@
                           </div>
                           <div class="row">
                               <div class="col-md-6">
-                                <a class="pull-left body-btn" href="{{ $budget->file}}">LINK</a>
+                                <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO</a>
                               </div>
                               <div class="col-md-6">
                                 <a href="#" class="answer-budget pull-right body-btn" supplier="{{ Auth::user()->id }}" requester="{{ $budget->user_id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
@@ -60,7 +60,7 @@
                           </div>
                           <div class="row">
                               <div class="col-md-6">
-                                <a class="pull-left body-btn" href="{{ $budget->file}}">LINK</a>
+                                <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO</a>
                               </div>
                               <div class="col-md-6">
                                 <a href="#" class="answer-budget pull-right body-btn" supplier="{{ $budget->resource->user->id }}" requester="{{ Auth::user()->id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
