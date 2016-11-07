@@ -125,7 +125,18 @@ ul {
     box-shadow: inset 0 0 10px #ddd;
 }
 
+.dashboard-tab {
+    cursor: pointer;
+}
 
+.dashboard-tab, .dashboard-tab > .panel-heading {
+    transition: .3s linear all;
+}
+
+.dashboard-tab:hover, .dashboard-tab > .panel-heading:hover {
+    border-color: #607D8B !important;
+    background-color: #607D8B !important;
+}
 
 #rl-content .input-group {
     margin: 20px 6px; 
