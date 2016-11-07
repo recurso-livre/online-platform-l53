@@ -33,7 +33,7 @@ class BudgetController extends Controller
         
         // Obter id do usuário logado
         $input["user_id"] = Auth::user()->id;
-        
+
         $this->uploadBudgetValidation($request);
         
         $file_uploaded = $this->uploadBudget($request->file, Auth::user());
@@ -43,13 +43,14 @@ class BudgetController extends Controller
         // Criar orçamento
         $budget = Budget::create($input);
         
-        $filename = $file_uploaded['path_file']."/$budget->id.".$file_uploaded['extension'];
+        //$filename = $file_uploaded['path_file']."/$budget->id.".$file_uploaded['extension'];
         
-        $budget->file = Storage::url($filename);
-        $budget->save();
         
         // Padrão de nome: /budgets/<ID>.<EXTENSION>
-        Storage::move($file_uploaded['path'], $filename);
+        
+        
+        
+        //Storage::move($file_uploaded['path'], $filename);
         
         return redirect()->route("user.index");
     }
@@ -68,14 +69,25 @@ class BudgetController extends Controller
         // Obter nome original do arquivo
         $filename = $file->getClientOriginalName();
         $path_file = "$user->id/budgets";
-        $path_tmp = $path_file;
-        $path = $file->storeAs($path_tmp, $filename);
         
-        $path_tmp .= '/'.$filename;
+        // Manipulação do nome de arquivo (caso de nome longo)
+        $filename = explode(".", $filename);
+
+        if (strlen($filename[0]) > 170) {
+            $filename[0] = substr($filename[0], 0, 170) . '-';
+        }
+        
+        if (count($filename) > 1) {
+            $filename[1] = substr($filename[1], 0, 10);
+        }
+
+        $filename = implode(".", $filename);
+
+        $path = $file->storeAs($path_file, $filename);
 
         // Deixar o arquivo upado com visibilidade pública
         Storage::setVisibility($path, 'public');
         
-        return ['path' => $path_tmp, 'path_file' => $path_file, 'extension' => $file->extension()];
+        return ['path' => Storage::url($path), 'path_file' => $path_file, 'extension' => $file->extension()];
     }
 }

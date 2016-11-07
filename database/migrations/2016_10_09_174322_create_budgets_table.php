@@ -28,7 +28,7 @@ class CreateBudgetsTable extends Migration
             $table->string('message', 5000);
             
             // Arquivo do orçamento (JSON)
-            $table->string('file', 256);
+            $table->string('file', 10000);
             
             $table->timestamps();
         });

@@ -25,7 +25,6 @@ class BudgetRequest extends FormRequest
     {
         return [
             'message' => 'required|max:5000',
-            'file'   => 'max:256'
         ];
     }
 }
