@@ -10,6 +10,7 @@ use App\Http\Requests\ResourceRequest;
 use App\Http\Requests\ResourceSearchRequest;
 use App\Category;
 use App\Resource;
+use App\User;
 
 class ResourceController extends Controller
 {
@@ -53,6 +54,21 @@ class ResourceController extends Controller
     {
         // Pesquisar por nome de recurso
         $resources = Resource::search($query)->get();
+        
+        if (count($resources) == 0)
+        {
+            // Pesquisar a partir do nome do usuário
+            $user = User::search($query)->get()->first();
+            
+            // Caso o usuário não seja encontrado, retorne coleção vazia para o chunk funcionar
+            if ($user == null)
+            {
+                $resources = collect([]);
+            } else
+            {
+                $resources = $user->resources()->get();
+            }
+        }
 
         $pages = $resources->chunk(12);
         $count = count($pages);
