@@ -9,15 +9,15 @@
                 <h4>Meus Recursos</h4>
                 <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
                   @foreach ($orcamentos['request'] as $budget)
+                    <?php $status = $budget->status == "em-aberto" ? "Em Aberto" : ($budget->status == "fin-fornec" ? "O fornecedor finalizou o pedido" : "Encerrado"); ?>
                     <li>
                       <div class="collapsible-header">
                         <div class="row">
                           <div class="col-xs-1"><span class="badge" id="budget-{{ Auth::user()->id }}_{{ $budget->resource->user->id }}_{{ $budget->id }}">R</span></div>
                           <div class="col-xs-11">
-                            <span class="title">{{ $budget->resource->name }}</span>
+                            <span class="title">{{ $budget->resource->name }}  -- {{ $status }}</span>
                             <div class="name">{{ $budget->resource->user->name }}</div>
                           </div>
-                          <!--<div class="col-xs-1"><i class="pull-right fa fa-paper-plane fa-2x"></i></div>-->
                         </div>
                       </div>
                       <div class="collapsible-body">
@@ -25,15 +25,24 @@
                         <div class="row">
                           </div>
                           <div class="row">
-                              <div class="col-md-4">
-                                <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO <i class="fa fa-paperclip"></i></a>
-                              </div>
-                              <div class="col-md-4">
-                                <a href="#" class="answer-budget pull-right body-btn" supplier="{{ Auth::user()->id }}" requester="{{ $budget->user_id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
-                              </div>
-                              <div class="col-md-4">
-                                <a class="pull-right body-btn" href="{{ $budget->file}}">FINALIZAR <i class="fa fa-check"></i></a>
-                              </div>
+                              @if($budget->status == "em-aberto")
+                                <div class="col-md-4">
+                                  <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO <i class="fa fa-paperclip"></i></a>
+                                </div>
+                                <div class="col-md-4">
+                                  <a href="#" class="answer-budget pull-right body-btn" supplier="{{ Auth::user()->id }}" requester="{{ $budget->user_id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
+                                </div>
+                                <div class="col-md-4">
+                                  <a class="pull-right body-btn" href="{{ route('auth.budget.close', ['budget' => $budget->id, 'status' => 'fin-fornec']) }}">FINALIZAR <i class="fa fa-check"></i></a>
+                                </div>
+                              @else
+                                <div class="col-md-6">
+                                  <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO <i class="fa fa-paperclip"></i></a>
+                                </div>
+                                <div class="col-md-6">
+                                  <a href="#" class="answer-budget pull-right body-btn" supplier="{{ Auth::user()->id }}" requester="{{ $budget->user_id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
+                                </div>
+                              @endif
                           </div>
                       </div>
                     </li>
@@ -46,12 +55,13 @@
                 <h4>Meus Pedidos</h4>
                 <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
                   @foreach ($orcamentos['ordered'] as $budget)
+                    <?php $status = $budget->status == "em-aberto" ? "Em Aberto" : ($budget->status == "fin-fornec" ? "O fornecedor finalizou o pedido" : "Encerrado"); ?>
                     <li>
                       <div class="collapsible-header">
                         <div class="row">
                           <div class="col-xs-1"><span class="badge" id="budget-{{ $budget->resource->user->id }}_{{ Auth::user()->id }}_{{ $budget->id }}">P</span></div>
                           <div class="col-xs-11">
-                            <span class="title">{{ $budget->resource->name }}</span>
+                            <span class="title">{{ $budget->resource->name }} -- {{ $status }}</span>
                             <div class="name">{{ $budget->user->name }}</div>
                           </div>
                           <!--<div class="col-xs-1"><i class="pull-right fa fa-paper-plane fa-2x"></i></div>-->
@@ -62,15 +72,24 @@
                         <div class="row">
                           </div>
                           <div class="row">
-                              <div class="col-md-4">
-                                <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO  <i class="fa fa-paperclip"></i></a>
-                              </div>
-                              <div class="col-md-4">
-                                <a href="#" class="answer-budget pull-right body-btn" supplier="{{ $budget->resource->user->id }}" requester="{{ Auth::user()->id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
-                              </div>
-                              <div class="col-md-4">
-                                <a class="pull-right body-btn" href="{{ $budget->file}}">FINALIZAR <i class="fa fa-check"></i></a>
-                              </div>
+                              @if($budget->status == "fin-fornec")
+                                <div class="col-md-4">
+                                  <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO  <i class="fa fa-paperclip"></i></a>
+                                </div>
+                                <div class="col-md-4">
+                                  <a href="#" class="answer-budget pull-right body-btn" supplier="{{ $budget->resource->user->id }}" requester="{{ Auth::user()->id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
+                                </div>
+                                <div class="col-md-4">
+                                  <a class="pull-right body-btn" href="{{ route('auth.budget.close', ['budget' => $budget->id, 'status' => 'encerrado']) }}">FINALIZAR <i class="fa fa-check"></i></a>
+                                </div>
+                              @else
+                                <div class="col-md-6">
+                                  <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO  <i class="fa fa-paperclip"></i></a>
+                                </div>
+                                <div class="col-md-6">
+                                  <a href="#" class="answer-budget pull-right body-btn" supplier="{{ $budget->resource->user->id }}" requester="{{ Auth::user()->id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
+                                </div>
+                              @endif
                           </div>
                       </div>
                     </li>

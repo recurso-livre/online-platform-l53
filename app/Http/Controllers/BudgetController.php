@@ -41,6 +41,8 @@ class BudgetController extends Controller
         $input["file"] = $file_uploaded['path'];
         
         // Criar orçamento
+        $input['status'] = 'em-aberto';
+        $input['rating'] = 0.00;
         $budget = Budget::create($input);
         
         //$filename = $file_uploaded['path_file']."/$budget->id.".$file_uploaded['extension'];
@@ -89,5 +91,26 @@ class BudgetController extends Controller
         Storage::setVisibility($path, 'public');
         
         return ['path' => Storage::url($path), 'path_file' => $path_file, 'extension' => $file->extension()];
+    }
+    
+    public function closeBudget(Request $request, $budgetId, $status)
+    {
+        Budget::find($budgetId)->update(['status' => $status]);
+        
+        return redirect()->route('auth.budget.ratingView', $budgetId);
+    }
+    
+    public function viewRating(Request $request, $budgetId)
+    {
+        return view('pages.rating', ['budgetId' => $budgetId]);
+    }
+    
+    public function rating(Request $request)
+    {
+        $input = $request->all();
+        
+        Budget::find($input['budgetId'])->update(['rating' => $input['rating'], 'comment' => $input['comment']]);
+        
+        return redirect()->route('auth.dashboard.index');
     }
 }

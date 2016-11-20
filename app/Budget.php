@@ -10,7 +10,10 @@ class Budget extends Model
         'user_id',
         'resource_id',
         'message',
-        'file'
+        'file',
+        'status',
+        'rating',
+        'comment'
     ];
     
     // Obter o usuário que solicitou o orçamento (Budget -> User)
