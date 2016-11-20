@@ -93,6 +93,9 @@ Route::group(['as' => 'auth.'], function ()
     {
         Route::post('cadastrar', ['as' => 'store', 'uses' => 'BudgetController@store']);
         Route::post('upload', ['as' => 'upload', 'uses' => 'StorageController@uploadBudget']);
+        Route::get('id={budget}/status={status}', ['as' => 'close', 'uses' => 'BudgetController@closeBudget']);
+        Route::get('id={budget}/rating', ['as' => 'ratingView', 'uses' => 'BudgetController@viewRating']);
+        Route::post('avaliacao/cadastrar', ['as' => 'rating.store', 'uses' => 'BudgetController@rating']);
     });
     
     Route::group(['as' => 'storage.', 'prefix' => 'storage'], function ()

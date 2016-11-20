@@ -41,7 +41,7 @@
                       <i class="fa fa-shopping-bag fa-5x"></i>
                   </div>
                   <div class="col-xs-9 text-right">
-                      <div class="size-40">1</div>
+                      <div class="size-40">{{ count($orcamentos['request']) }}</div>
                       <div>Vendas</div>
                   </div>
               </div>
@@ -57,7 +57,7 @@
                       <i class="fa fa-shopping-cart fa-5x"></i>
                   </div>
                   <div class="col-xs-9 text-right">
-                      <div class="size-40">5</div>
+                      <div class="size-40">{{ count($orcamentos['ordered']) }}</div>
                       <div>Compras</div>
                   </div>
               </div>
