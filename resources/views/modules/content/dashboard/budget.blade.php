@@ -25,11 +25,14 @@
                         <div class="row">
                           </div>
                           <div class="row">
-                              <div class="col-md-6">
-                                <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO</a>
+                              <div class="col-md-4">
+                                <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO <i class="fa fa-paperclip"></i></a>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <a href="#" class="answer-budget pull-right body-btn" supplier="{{ Auth::user()->id }}" requester="{{ $budget->user_id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
+                              </div>
+                              <div class="col-md-4">
+                                <a class="pull-right body-btn" href="{{ $budget->file}}">FINALIZAR <i class="fa fa-check"></i></a>
                               </div>
                           </div>
                       </div>
@@ -59,11 +62,14 @@
                         <div class="row">
                           </div>
                           <div class="row">
-                              <div class="col-md-6">
-                                <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO</a>
+                              <div class="col-md-4">
+                                <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO  <i class="fa fa-paperclip"></i></a>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <a href="#" class="answer-budget pull-right body-btn" supplier="{{ $budget->resource->user->id }}" requester="{{ Auth::user()->id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
+                              </div>
+                              <div class="col-md-4">
+                                <a class="pull-right body-btn" href="{{ $budget->file}}">FINALIZAR <i class="fa fa-check"></i></a>
                               </div>
                           </div>
                       </div>
