@@ -165,7 +165,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-
+        Indal\Markdown\MarkdownServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -231,6 +231,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Markdown' => Indal\Markdown\Facade::class,
     ],
 
 ];

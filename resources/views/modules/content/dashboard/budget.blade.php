@@ -1,4 +1,18 @@
-<?php $i = 1; ?>
+@php ($i = 1)
+
+<style type="text/css">
+  .badge-em-aberto {
+    background-color: #FFA000;
+  }
+  
+  .badge-fin-fornec {
+    background-color: #388E3C;
+  }
+  
+  .badge-encerrado {
+    background-color: #D32F2F;
+  }
+</style>
 
 <div class="row">
     <div class="col-md-12">
@@ -9,25 +23,24 @@
                 <h4>Meus Recursos</h4>
                 <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
                   @foreach ($orcamentos['request'] as $budget)
-                    <?php $status = $budget->status == "em-aberto" ? "Em Aberto" : ($budget->status == "fin-fornec" ? "O fornecedor finalizou o pedido" : "Encerrado"); ?>
+                    @php ($status = $budget->status == "em-aberto" ? "Em Aberto" : ($budget->status == "fin-fornec" ? "Finalizado pelo fornecedor" : "Encerrado"))
                     <li>
                       <div class="collapsible-header">
                         <div class="row">
-                          <div class="col-xs-1"><span class="badge" id="budget-{{ Auth::user()->id }}_{{ $budget->resource->user->id }}_{{ $budget->id }}">R</span></div>
+                          <div class="col-xs-1"><span class="badge badge-{{ $budget->status }}" id="budget-{{ Auth::user()->id }}_{{ $budget->resource->user->id }}_{{ $budget->id }}">R</span></div>
                           <div class="col-xs-11">
-                            <span class="title">{{ $budget->resource->name }}  -- {{ $status }}</span>
-                            <div class="name">{{ $budget->resource->user->name }}</div>
+                            <span class="title">{{ $budget->resource->name }}</span><span class="pull-right" style="color: #999;font-size: 11px;margin-right: 10px">{{ $status }}</span>
+                            <div class="name">{{ $budget->user->name }}</div>
                           </div>
                         </div>
                       </div>
                       <div class="collapsible-body">
                         <span class="message">{{ $budget->message }}</span>
-                        <div class="row">
-                          </div>
+                        <div class="row"></div>
                           <div class="row">
                               @if($budget->status == "em-aberto")
                                 <div class="col-md-4">
-                                  <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO <i class="fa fa-paperclip"></i></a>
+                                  <a class="pull-left body-btn" href="{{ $budget->file }}">ANEXO <i class="fa fa-paperclip"></i></a>
                                 </div>
                                 <div class="col-md-4">
                                   <a href="#" class="answer-budget pull-right body-btn" supplier="{{ Auth::user()->id }}" requester="{{ $budget->user_id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
@@ -37,7 +50,7 @@
                                 </div>
                               @else
                                 <div class="col-md-6">
-                                  <a class="pull-left body-btn" href="{{ $budget->file}}">ANEXO <i class="fa fa-paperclip"></i></a>
+                                  <a class="pull-left body-btn" href="{{ $budget->file }}">ANEXO <i class="fa fa-paperclip"></i></a>
                                 </div>
                                 <div class="col-md-6">
                                   <a href="#" class="answer-budget pull-right body-btn" supplier="{{ Auth::user()->id }}" requester="{{ $budget->user_id }}" budget-id="{{ $budget->id }}">RESPONDER <i class="fa fa-paper-plane"></i></a>
@@ -55,14 +68,14 @@
                 <h4>Meus Pedidos</h4>
                 <ul class="collapsible popout collapsible-accordion" data-collapsible="accordion">
                   @foreach ($orcamentos['ordered'] as $budget)
-                    <?php $status = $budget->status == "em-aberto" ? "Em Aberto" : ($budget->status == "fin-fornec" ? "O fornecedor finalizou o pedido" : "Encerrado"); ?>
+                    @php ($status = $budget->status == "em-aberto" ? "Em Aberto" : ($budget->status == "fin-fornec" ? "Finalizado pelo fornecedor" : "Encerrado"))
                     <li>
                       <div class="collapsible-header">
                         <div class="row">
-                          <div class="col-xs-1"><span class="badge" id="budget-{{ $budget->resource->user->id }}_{{ Auth::user()->id }}_{{ $budget->id }}">P</span></div>
+                          <div class="col-xs-1"><span class="badge badge-{{ $budget->status }}" id="budget-{{ $budget->resource->user->id }}_{{ Auth::user()->id }}_{{ $budget->id }}">P</span></div>
                           <div class="col-xs-11">
-                            <span class="title">{{ $budget->resource->name }} -- {{ $status }}</span>
-                            <div class="name">{{ $budget->user->name }}</div>
+                            <span class="title">{{ $budget->resource->name }}</span><span class="pull-right" style="color: #999;font-size: 11px;margin-right: 14px">{{ $status }}</span>
+                            <div class="name">{{ $budget->resource->user->name }}</div>
                           </div>
                           <!--<div class="col-xs-1"><i class="pull-right fa fa-paper-plane fa-2x"></i></div>-->
                         </div>

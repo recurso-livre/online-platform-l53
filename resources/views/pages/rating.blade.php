@@ -16,12 +16,11 @@
             $("#rateYo").rateYo({
                 rating: 0,
                 multiColor: {
-                  "startColor": "#FF0000",
-                  "endColor"  : "#00FF00"
+                  "startColor": "#F44336",
+                  "endColor"  : "#4CAF50"
                 },
                 halfStar: true,
                 onSet: function (rating, rateYoInstance) {
-                    console.log(rating);
                     $("#rating").val(rating);
                 }
             });
