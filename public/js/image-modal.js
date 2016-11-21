@@ -40,7 +40,7 @@ $('#create-resource').submit(function (e) {
     var videos = [], video;
     $('.video-modal').each(function () {
         video = $(this).attr('src');
-        if (image != videoPlaceholder) {
+        if (video != videoPlaceholder) {
             videos.push(video);
         }
     });

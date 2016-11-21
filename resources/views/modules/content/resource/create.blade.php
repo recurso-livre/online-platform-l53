@@ -74,12 +74,12 @@
           	                </div>
       	                @endfor
       	                
-      	                <input id="video-placeholder" type="hidden" value="{{ asset('img/add-video.png') }}">
+      	                <input id="video-placeholder" type="hidden" value="{{ asset('img/add-photo.png') }}">
       	                @for($count = 1; $count <= 2; $count++)
           	                <div class="col-md-2 col-sm-4">
           	                    <div class="image-fit opacity-hover">
             	                    <img id="link-video{{ $count }}"
-            	                         src="{{ asset('img/add-video.png') }}"
+            	                         src="{{ asset('img/add-photo.png') }}"
             	                         alt="video-{{ $count }}"
             	                         class="img-modal img-responsive">
           	                     </div>

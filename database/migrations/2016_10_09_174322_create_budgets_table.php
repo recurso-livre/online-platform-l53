@@ -30,6 +30,10 @@ class CreateBudgetsTable extends Migration
             // Arquivo do orçamento (JSON)
             $table->string('file', 10000);
             
+            $table->enum('status', ['em-aberto', 'fin-fornec', 'encerrado']);
+            $table->float('rating', 3, 2);
+            $table->string('comment', 255)->nullable();
+            
             $table->timestamps();
         });
     }
