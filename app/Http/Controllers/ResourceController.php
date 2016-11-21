@@ -11,12 +11,13 @@ use App\Http\Requests\ResourceSearchRequest;
 use App\Category;
 use App\Resource;
 use App\User;
+use App\Budget;
 
 class ResourceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['search', 'searchTesteView', 'searchTest']]);
+        $this->middleware('auth', ['except' => ['search', 'searchTesteView', 'searchTest', 'show']]);
     }
 
     // Método para inclusão de recurso (criação)
@@ -95,20 +96,43 @@ class ResourceController extends Controller
 
         return view("pages.resource.search", compact('search'));
     }
-
-    public function searchTesteView()
+    
+    // Entrada: id resource
+    // Saída: pages.resource.show ($resouce)
+    public function show(Request $request, $resourceId)
     {
-        return view("recurso.search");
+        $resource = Resource::find($resourceId);
+        
+        $html_infDesc = markdown($resource->informalDescription);
+        $html_techDesc = markdown($resource->technicalDescription);
+        
+        $resource->informalDescription = $html_infDesc;
+        $resource->technicalDescription = $html_techDesc;
+        
+        return view('pages.resource.show', 
+            [
+                'resource' => $resource, 
+                'rating' => $this->getRating($resource)
+            ]);
     }
-
-    public function searchTest(Request $request)
+    
+    public function getRating(Resource $resource)
     {
-        $input = $request->all();
-        $search = $input["searchField"];
-
-        // Realizar a pesquisa pelo nome do recurso
-        $resources = Resource::search(null)->where('name', $search)->get();
-
-        return view("recurso.search-result", compact("resources"));
+        $budgets = Budget::where('resource_id', $resource->id)->where('status', 'encerrado')->get();
+        
+        $total_budgets = count($budgets);
+        $total_rating = 0;
+        
+        foreach($budgets as $budget)
+            $total_rating += $budget->rating;
+        
+        $media = $total_budgets === 0 ? 0 : $total_rating / $total_budgets;
+        
+        return (object)['media' => $media, 'total_budgets' => $total_budgets];
     }
+    
+    // Quantidade de budget finalizados
+    
 }
+
+// route()

@@ -97,7 +97,11 @@ class BudgetController extends Controller
     {
         Budget::find($budgetId)->update(['status' => $status]);
         
-        return redirect()->route('auth.budget.ratingView', $budgetId);
+        if($status == 'encerrado'){
+            return redirect()->route('auth.budget.ratingView', $budgetId);
+        }
+        
+        return redirect()->route('auth.dashboard.index');
     }
     
     public function viewRating(Request $request, $budgetId)
@@ -110,6 +114,7 @@ class BudgetController extends Controller
         $input = $request->all();
         
         Budget::find($input['budgetId'])->update(['rating' => $input['rating'], 'comment' => $input['comment']]);
+        
         
         return redirect()->route('auth.dashboard.index');
     }

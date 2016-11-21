@@ -54,7 +54,8 @@ Route::group(['as' => 'guest.'], function ()
     Route::get("recurso/pesquisaResultado/{itens?}", ["as" => "resource.searchtest.view.result", "uses" => "ResourceController@searchTest"]);
 
     Route::get('recurso/procurar/{category}/{query}/{page}', ['as' => 'resource.search', 'uses' => 'ResourceController@search']);
-    
+    Route::get('recurso/detalhes/{id}/{name?}', ['as' => 'resource.show', 'uses' => 'ResourceController@show']);
+
     Route::group(['prefix' => 'password',  'as' => 'password.'], function()
     {
         Route::get('reset', ['as' => 'reset', 'uses' => 'Auth\ForgotPasswordController@showLinkRequestForm']);
