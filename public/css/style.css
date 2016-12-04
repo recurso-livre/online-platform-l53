@@ -38,6 +38,12 @@ ul {
 .rl-navbar-btn {
     color: #e6e6e6 !important;
     transition: all 0.8s linear;
+    background: none !important;
+}
+
+.open > .rl-navbar-btn {
+    color: #e6e6e6 !important;
+    background-image: linear-gradient(to bottom,#1e7fbf 0,#3b5998 100%) !important;
 }
 
 .rl-navbar-btn:hover {

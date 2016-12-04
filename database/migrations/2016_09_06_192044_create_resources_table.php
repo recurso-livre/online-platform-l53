@@ -19,8 +19,8 @@ class CreateResourcesTable extends Migration
 
             // Campos não-nulos e o nome pode repetir
             $table->string("name");                         // não-nulo
-            $table->string("technicalDescription", 1000);   // não-nulo
-            $table->string("informalDescription", 1000);    // não-nulo
+            $table->string("technicalDescription", 65535);   // não-nulo
+            $table->string("informalDescription", 65535);    // não-nulo
 
             // Criar um campo chamado URIResources (id e URI) que armazenará um JSON com as URIs (método json() não está
             // funcionando devido às versões mais antigas do MySQL)

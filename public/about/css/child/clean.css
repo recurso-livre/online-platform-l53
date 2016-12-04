@@ -1,0 +1,118 @@
+/*
+--------------------------
++ Main Css
+--------------------------
+*/
+
+.slider-text h1 {
+    color: #222;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 60px;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.17);
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+}
+
+.slider-text p {
+    color: #222;
+    font-size: 16px;
+}
+
+.Modern-Slider .PrevArrow,
+.Modern-Slider .NextArrow {
+    border: 1px solid #222;
+    color: #222;
+}
+
+.Modern-Slider .PrevArrow:hover,
+.Modern-Slider .NextArrow:hover {
+    border: #fff;
+    color: #fff;
+}
+
+
+/*
+--------------------------
++ Colors Css
+--------------------------
+*/
+
+.head-bottom-area,
+.contact-btn,
+.footer-newsletter > input[type="submit"],
+.mainmenu-area ul.nav.navbar-nav li ul li::after,
+.Modern-Slider .PrevArrow:hover,
+.Modern-Slider .NextArrow:hover,
+.navbar-collapse,
+.cta-area,
+.color-palate-head,
+.sin-whatWork::after,
+.single-form input[type="submit"],
+input#submit-comment,
+ul.degins li::after,
+.mean-container .mean-bar,
+.mean-container .mean-nav ul li,
+.Modern-Slider .PrevArrow:hover,
+.Modern-Slider .NextArrow:hover,
+.sin-pricing-table.active,
+a.pricing-btn {
+    background-color: #2DCC70;    /* -- Your primary color code here -- */
+}
+
+
+/* Jotil Colors*/
+
+.mainmenu-area ul.nav.navbar-nav > li > a:hover,
+.mainmenu-area ul.nav.navbar-nav li.active,
+.button-hover::after,
+.color-trigger,
+.about-gallery-posts .owl-dot.active,
+.sin-pricing-table.active .pricing-status {
+    background-color: #26BC65;    /* -- Your primary color hover code here -- */
+}
+
+
+/* Color*/
+
+.info-icon,
+a.link-out,
+.facts-headding h2 > strong,
+.social-links ul li a:hover,
+.mainmenu-area ul.nav.navbar-nav li ul li a:hover,
+a.replay-btn:hover,
+a.author,
+.slider-text h1 span,
+.sidebar .widget ul li a:hover,
+.sidebar .sin-testimonial .quote-icon {
+    color: #2DCC70;                /* -- Your text color code here -- */
+}
+
+/* Secondary Colors */
+
+#footer-area,
+.overlay::after,
+.mainmenu-area ul.nav.navbar-nav li ul li a,
+.button.quote-btn,
+.button.button-cta,
+.sidebar .widget,
+.sin-pricing-table.active .pricing-btn,
+.sin-pricing-table {
+    background-color: #222222;
+}
+
+.bb-top {
+    border-color: #2a2a2a;
+}
+
+.sidebar ul.widget_links::after,
+.work-thumb .work-hover,
+.sin-news .news-hover,
+.secondary-two .work-thumb:hover .work-hover,
+.news-thumb:hover .news-hover {
+    background: rgba(34, 34, 34, 0.9);
+}
+
+.secondary-two .pricing-status {
+    background: #171717;
+}

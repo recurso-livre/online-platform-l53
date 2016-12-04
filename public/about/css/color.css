@@ -1,0 +1,410 @@
+body {
+    position: relative;
+}
+
+.color-palate {
+    background: #fff none repeat scroll 0 0;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+    height: 328px;
+    position: fixed;
+    right: 0px;
+    text-align: center;
+    top: 30%;
+    transition: all 0.5s ease 0s;
+    width: 285px;
+    z-index: 9999;
+}
+
+.color-palate-head {
+    background: #f8cf27 none repeat scroll 0 0;
+    padding: 14px 0;
+}
+
+.color-palate-head h6,
+.secondary-head h6 {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0px;
+    margin-top: 4px;
+}
+
+.palate {
+    background: red none repeat scroll 0 0;
+    display: block;
+    float: left;
+    height: 43px;
+    margin: 0 7.5px;
+    width: 43px;
+    cursor: pointer;
+    position: relative;
+}
+
+.colors-list .active::after{
+    background: url(../img/tick.png) !important;
+    background-repeat: no-repeat;
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 7px;
+    width: 30px;
+    height: 30px;
+}
+
+.secondary-colors-list .actives::after{
+    background: url(../img/tick.png) !important;
+    background-repeat: no-repeat;
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 7px;
+    width: 30px;
+    height: 30px;
+}
+
+.various-color {
+    overflow: hidden;
+    padding: 22px 0;
+}
+
+.colors-list {
+    margin: 0 25px;
+}
+
+.secondary-head {
+    background: #222222 none repeat scroll 0 0;
+    padding: 14px 0;
+}
+
+.secondary-color {
+    padding: 23px 0;
+}
+
+.secondary-colors-list {
+    margin: 0 80px;
+}
+
+.palate-foo {
+    color: #666666;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 0 30px;
+}
+
+.palate.default-color {
+    background: #f8cf27 none repeat scroll 0 0;
+}
+
+.palate.yellow-color {
+    background: #f8cf27 none repeat scroll 0 0;
+}
+
+.palate.green-color {
+    background: #2dcc70 none repeat scroll 0 0;
+}
+
+.palate.red-color {
+    background: #ef4836 none repeat scroll 0 0;
+}
+
+.palate.blue-color {
+    background: #19b5ff none repeat scroll 0 0;
+}
+
+.palate.black-color {
+    background: #222222 none repeat scroll 0 0;
+}
+
+.palate.deepblue-color {
+    background: #21313f none repeat scroll 0 0;
+}
+
+.color-trigger {
+    background: #EEC623 none repeat scroll 0 0;
+    cursor: pointer;
+    height: 46px;
+    left: -46px;
+    position: absolute;
+    top: 0;
+    width: 46px;
+    padding-top: 4px;
+}
+
+.color-trigger i {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 42px;
+}
+
+.color-palate.visible-palate {
+    right: -285px;
+}
+
+
+/*
+---------------------------------------
++ Settings Color Green
+---------------------------------------
+*/
+
+
+/* Background Color*/
+
+body.allgreen .head-bottom-area,
+body.allgreen .contact-btn,
+body.allgreen .footer-newsletter > input[type="submit"],
+body.allgreen .mainmenu-area ul.nav.navbar-nav li ul li::after,
+body.allgreen .Modern-Slider .PrevArrow:hover,
+body.allgreen .Modern-Slider .NextArrow:hover,
+body.allgreen .navbar-collapse,
+body.allgreen .cta-area,
+body.allgreen .color-palate-head,
+body.allgreen .sin-whatWork::after,
+body.allgreen .single-form input[type="submit"],
+body.allgreen input#submit-comment,
+body.allgreen ul.degins li::after,
+body.allgreen.mean-container .mean-bar,
+body.allgreen.mean-container .mean-nav ul li,
+body.allgreen .Modern-Slider .PrevArrow:hover,
+body.allgreen .Modern-Slider .NextArrow:hover,
+body.allgreen .sin-pricing-table.active,
+body.allgreen a.pricing-btn {
+    background-color: #2DCC70;
+}
+
+
+/* Jotil Colors*/
+
+body.allgreen .mainmenu-area ul.nav.navbar-nav > li > a:hover,
+body.allgreen .mainmenu-area ul.nav.navbar-nav li.active,
+body.allgreen .button-hover::after,
+body.allgreen .about-gallery-posts .owl-dot.active,
+body.allgreen .color-trigger,
+body.allgreen .sin-pricing-table.active .pricing-status {
+    background-color: #26bc65;
+}
+
+
+/* Color*/
+
+body.allgreen .info-icon,
+body.allgreen a.link-out,
+body.allgreen .facts-headding h2 > strong,
+body.allgreen .social-links ul li a:hover,
+body.allgreen .mainmenu-area ul.nav.navbar-nav li ul li a:hover,
+body.allgreen a.replay-btn:hover,
+body.allgreen a.author,
+body.allgreen .slider-text h1 span,
+body.allgreen .widget ul li a:hover,
+body.allgreen .sidebar .sin-testimonial .quote-icon {
+    color: #2DCC70;
+}
+
+
+/*
+---------------------------------------
++ Settings Color Red
+---------------------------------------
+*/
+
+
+/* Background Color*/
+
+body.allred .head-bottom-area,
+body.allred .contact-btn,
+body.allred .footer-newsletter > input[type="submit"],
+body.allred .mainmenu-area ul.nav.navbar-nav li ul li::after,
+body.allred .Modern-Slider .PrevArrow:hover,
+body.allred .Modern-Slider .NextArrow:hover,
+body.allred .navbar-collapse,
+body.allred .cta-area,
+body.allred .color-palate-head,
+body.allred .sin-whatWork::after,
+body.allred .single-form input[type="submit"],
+body.allred input#submit-comment,
+body.allred ul.degins li::after,
+body.allred.mean-container .mean-bar,
+body.allred.mean-container .mean-nav ul li,
+body.allred .Modern-Slider .PrevArrow:hover,
+body.allred .Modern-Slider .NextArrow:hover,
+body.allred .sin-pricing-table.active,
+body.allred a.pricing-btn {
+    background-color: #EF4836;
+}
+
+
+/* Jotil Colors*/
+
+body.allred .mainmenu-area ul.nav.navbar-nav > li > a:hover,
+body.allred .mainmenu-area ul.nav.navbar-nav li.active,
+body.allred .button-hover::after,
+body.allred .about-gallery-posts .owl-dot.active,
+body.allred .color-trigger,
+body.allred .sin-pricing-table.active .pricing-status {
+    background-color: #de402f;
+}
+
+
+/* Color*/
+
+body.allred .info-icon,
+body.allred a.link-out,
+body.allred .facts-headding h2 > strong,
+body.allred .social-links ul li a:hover,
+body.allred .mainmenu-area ul.nav.navbar-nav li ul li a:hover,
+body.allred a.replay-btn:hover,
+body.allred a.author,
+body.allred .slider-text h1 span,
+body.allred .widget ul li a:hover,
+body.allred .sidebar .sin-testimonial .quote-icon {
+    color: #EF4836;
+}
+
+
+/*
+---------------------------------------
++ Settings Color Blue
+---------------------------------------
+*/
+
+
+/* Background Color*/
+
+body.allblue .head-bottom-area,
+body.allblue .contact-btn,
+body.allblue .footer-newsletter > input[type="submit"],
+body.allblue .mainmenu-area ul.nav.navbar-nav li ul li::after,
+body.allblue .Modern-Slider .PrevArrow:hover,
+body.allblue .Modern-Slider .NextArrow:hover,
+body.allblue .navbar-collapse,
+body.allblue .cta-area,
+body.allblue .color-palate-head,
+body.allblue .sin-whatWork::after,
+body.allblue .single-form input[type="submit"],
+body.allblue input#submit-comment,
+body.allblue ul.degins li::after,
+body.allblue.mean-container .mean-bar,
+body.allblue.mean-container .mean-nav ul li,
+body.allblue .Modern-Slider .PrevArrow:hover,
+body.allblue .Modern-Slider .NextArrow:hover,
+body.allblue .sin-pricing-table.active,
+body.allblue a.pricing-btn {
+    background-color: #19B5FF;
+}
+
+
+/* Jotil Colors*/
+
+body.allblue .mainmenu-area ul.nav.navbar-nav > li > a:hover,
+body.allblue .mainmenu-area ul.nav.navbar-nav li.active,
+body.allblue .button-hover::after,
+body.allblue .about-gallery-posts .owl-dot.active,
+body.allblue .color-trigger,
+body.allblue .sin-pricing-table.active .pricing-status {
+    background-color: #11A3E8;
+}
+
+body.allblue .info-icon,
+body.allblue a.link-out,
+body.allblue .facts-headding h2 > strong,
+body.allblue .social-links ul li a:hover,
+body.allblue .mainmenu-area ul.nav.navbar-nav li ul li a:hover,
+body.allblue a.replay-btn:hover,
+body.allblue a.author,
+body.allblue .slider-text h1 span,
+body.allblue .widget ul li a:hover,
+body.allblue .sidebar .sin-testimonial .quote-icon {
+    color: #19B5FF;
+}
+
+/*
+---------------------------------------
++ Settings Color Yellow
+---------------------------------------
+*/
+
+
+/* Background Color*/
+
+body.allyellow .head-bottom-area,
+body.allyellow .contact-btn,
+body.allyellow .footer-newsletter > input[type="submit"],
+body.allyellow .mainmenu-area ul.nav.navbar-nav li ul li::after,
+body.allyellow .Modern-Slider .PrevArrow:hover,
+body.allyellow .Modern-Slider .NextArrow:hover,
+body.allyellow .navbar-collapse,
+body.allyellow .cta-area,
+body.allyellow .color-palate-head,
+body.allyellow .sin-whatWork::after,
+body.allyellow .single-form input[type="submit"],
+body.allyellow input#submit-comment,
+body.allyellow ul.degins li::after,
+body.allyellow.mean-container .mean-bar,
+body.allyellow.mean-container .mean-nav ul li,
+body.allyellow .Modern-Slider .PrevArrow:hover,
+body.allyellow .Modern-Slider .NextArrow:hover,
+body.allyellow .sin-pricing-table.active,
+body.allyellow a.pricing-btn {
+    background-color: #f8cf27;
+}
+
+
+/* Jotil Colors*/
+
+body.allyellow .mainmenu-area ul.nav.navbar-nav > li > a:hover,
+body.allyellow .mainmenu-area ul.nav.navbar-nav li.active,
+body.allyellow .button-hover::after,
+body.allyellow .about-gallery-posts .owl-dot.active,
+body.allyellow .color-trigger,
+body.allyellow .sin-pricing-table.active .pricing-status {
+    background-color: #eec623;
+}
+
+body.allyellow .info-icon,
+body.allyellow a.link-out,
+body.allyellow .facts-headding h2 > strong,
+body.allyellow .social-links ul li a:hover,
+body.allyellow .mainmenu-area ul.nav.navbar-nav li ul li a:hover,
+body.allyellow a.replay-btn:hover,
+body.allyellow a.author,
+body.allyellow .slider-text h1 span,
+body.allyellow .widget ul li a:hover,
+body.allyellow .sidebar .sin-testimonial .quote-icon {
+    color: #f8cf27;
+}
+
+
+/*
+-----------------------
++ Secondary Color
+-----------------------
+*/
+
+body.secondary-two #footer-area,
+body.secondary-two .overlay::after,
+body.secondary-two .mainmenu-area ul.nav.navbar-nav li ul li a,
+body.secondary-two .button.quote-btn,
+body.secondary-two .button.button-cta,
+body.secondary-two .sidebar .widget,
+body.secondary-two .sin-pricing-table.active .pricing-btn,
+body.secondary-two .sin-pricing-table {
+    background-color: #21313f;
+}
+
+body.secondary-two .mainmenu-area ul.nav.navbar-nav li ul li,
+body.secondary-two .bb-top{
+    border-color: #2e455b;
+}
+
+body.secondary-two .sidebar ul.widget_links::after,
+body.secondary-two .work-thumb .work-hover,
+body.secondary-two .sin-news .news-hover,
+body.secondary-two .work-thumb:hover .work-hover,
+body.secondary-two .news-thumb:hover .news-hover {
+    background: rgba(33, 49, 63, 0.9);
+}
+
+body.secondary-two .pricing-status {
+    background: #1B2329;
+}

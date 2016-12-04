@@ -112,20 +112,48 @@ class ResourceController extends Controller
         return view('pages.resource.show', 
             [
                 'resource' => $resource, 
-                'rating' => $this->getRating($resource)
+                'rating' => $this->getRating($resource),
+                'comments' => $this->getComments($resource)
             ]);
+    }
+    
+    public function getComments(Resource $resource){
+        
+        $budgets = Budget::where('resource_id', $resource->id)->where('status', 'encerrado')->get();
+        
+        $comments = [];
+        
+        foreach($budgets as $budget){
+            if($budget['comment'] != null){
+                $user = User::find($budget['user_id']);
+                $comment['id'] = $budget['id'];
+                $comment['rating'] = $budget['rating'];
+                $comment['message'] = $budget['comment'];
+                $comment['date'] = $budget['created_at'];
+                $comment['date'] = explode('-', explode(' ', $comment['date'])[0]);
+                $comment['name'] = $user['name'];
+                
+                $comments[] = (object)$comment;
+            }
+        }
+        
+        return ($comments);
     }
     
     public function getRating(Resource $resource)
     {
         $budgets = Budget::where('resource_id', $resource->id)->where('status', 'encerrado')->get();
         
-        $total_budgets = count($budgets);
+        $total_budgets = 0;
         $total_rating = 0;
         
-        foreach($budgets as $budget)
-            $total_rating += $budget->rating;
-        
+        foreach($budgets as $budget){
+            if($budget['comment'] != null){
+                $total_rating += $budget->rating;
+                $total_budgets++;
+            }
+        }
+            
         $media = $total_budgets === 0 ? 0 : $total_rating / $total_budgets;
         
         return (object)['media' => $media, 'total_budgets' => $total_budgets];

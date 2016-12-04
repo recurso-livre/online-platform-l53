@@ -14,6 +14,7 @@
         $(function () {
             $("#rating").rateYo({
                 rating: {{ $rating->media }},
+                normalFill: "#c7c7c7",
                 starWidth: "50px",
                 readOnly: true,
                 multiColor: {

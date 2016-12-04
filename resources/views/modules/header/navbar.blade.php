@@ -25,17 +25,27 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         @if (Auth::check())
-          <li>
-            <a class="rl-navbar-btn" href="{{ route('auth.dashboard.index') }}">
-              <span class="rl-navbar-btn">{{ mb_strimwidth(Auth::user()->name, 0, 30, ".") }}</span>
-            </a>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle rl-navbar-btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ mb_strimwidth(Auth::user()->name, 0, 30, ".") }} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="" href="{{ route('auth.dashboard.index') }}">
+                  <i class="fa fa-user"></i>&nbsp;&nbsp;<span class="">Painel Principal</span>
+                </a>
+              </li>
+              <li>
+                <a class="" href="{{ route('auth.resource.create') }}">
+                  <i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="">Adicionar Recurso</span>
+                </a>
+              </li>
+              <li>
+                <a class="" href="/logout">
+                  <i class="fa fa-sign-out"></i>&nbsp;&nbsp;Sair
+                </a>
+              </li>
+            </ul>
           </li>
-          <li>
-            <a class="rl-navbar-btn" href="/logout">
-              Sair&nbsp;&nbsp;
-              <i class="fa fa-sign-out"></i>
-            </a>
-          </li>
+          
         @else
           <li>
             <a class="rl-navbar-btn" href="#login-modal" data-toggle="modal" data-target="#login-modal">
@@ -55,6 +65,20 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div class="rl-fixed-navbar-space"></div>
+
+@push('stylesheets')
+    <style>
+      @media (max-width: 767px) {
+          .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+              color: #eee !important;
+          }
+          
+          .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+              color: #fff !important;
+          }
+      }
+    </style>
+  @endpush
 
 @if (Auth::guest())
   <!-- Modal -->

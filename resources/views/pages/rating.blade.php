@@ -14,6 +14,7 @@
     <script>
         $(function () {
             $("#rateYo").rateYo({
+                normalFill: "#c7c7c7",
                 rating: 0,
                 multiColor: {
                   "startColor": "#F44336",
@@ -33,7 +34,7 @@
 @section('header')
     @include('modules.header.navbar')
     @include('modules.header.titlebar', [
-        'name' => 'Cadastrar Recurso',
+        'name' => 'Avaliação',
     ])
 @endsection
 
@@ -65,6 +66,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <button class="btn btn-lg btn-primary pull-right" type="submit">Classificar</button>
+                    <a href="/" style="margin: auto 10px" class="btn btn-lg btn-danger pull-right">Não Avaliar</a>
                 </div>
             </div>
         </form>

@@ -1,0 +1,856 @@
+/*-------------------------------------------------------------------------------------
+Theme Name:	Business
+Theme URI: 	http://themeextra.com
+Version:	1.0
+Author: ThemeExtra
+-------------------------------------------------------------------------------------*/
+
+
+/*-------------------------------------------------------------------------------------
+[TABLE OF CONTENTS]
+
+	00. RESET
+	01. BUTTON
+	02. HEADER
+	03. STICKY HEADER
+
+-------------------------------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------------------------*/
+
+
+/*	00. RESET
+/*-----------------------------------------------------------------------------------*/
+
+#rl-content .alignleft {
+    float: left;
+    margin-right: 15px;
+}
+
+#rl-content .alignright {
+    float: right;
+    margin-left: 15px;
+}
+
+#rl-content .aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+#rl-content a:focus {
+    outline: 0 solid
+}
+
+#rl-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+#rl-content .fix {
+    overflow: hidden
+}
+
+#rl-content h1,
+#rl-content h2,
+#rl-content h3,
+#rl-content h4,
+#rl-content h5,
+#rl-content h6 {
+    margin: 0 0 15px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+}
+
+#rl-content {
+    font-size: 14px;
+}
+
+#rl-content {
+    font-family: 'Poppins', sans-serif;
+    line-height: 30px;
+    color: #999999;
+    font-weight: 300;
+}
+
+#rl-content a {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    color: #333;
+}
+
+#rl-content a:hover {
+    text-decoration: none;
+    color: #222;
+}
+
+
+/* Remove Chrome Input Field's Unwanted Yellow Background Color */
+
+#rl-content input:-webkit-autofill,
+#rl-content input:-webkit-autofill:hover,
+#rl-content input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+#rl-content *:before,
+#rl-content *:after {
+    box-sizing: border-box;
+}
+
+#rl-content:focus {
+    outline: none !important;
+}
+
+#rl-content figure {
+    margin: 0;
+    padding: 0;
+}
+
+#rl-content figure img {
+    max-width: 100%
+}
+
+#rl-content::-moz-selection {
+    background: #d4eaf5;
+    /* Safari */
+    color: #2f2f2f;
+}
+
+#rl-content::selection {
+    background: #d4eaf5;
+    /* Safari */
+    color: #2f2f2f;
+}
+
+#rl-content::-moz-selection {
+    background: #d4eaf5;
+    /* Firefox */
+    color: #2f2f2f;
+}
+
+#rl-content ul.nav.navbar-nav li a:hover,
+#rl-content ul.nav.navbar-nav li a:focus {
+    background: none;
+}
+
+#rl-content ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mb-70 {
+    margin-bottom: 70px;
+}
+
+.mb-90 {
+    margin-bottom: 90px;
+}
+
+.mb-65 {
+    margin-bottom: 65px;
+}
+
+.pb-140 {
+    padding-bottom: 80px;
+}
+
+.pb-100 {
+    padding-bottom: 100px;
+}
+
+.mb-35 {
+    margin-bottom: 35px;
+}
+
+.pb-130 {
+    padding-bottom: 130px;
+}
+
+.foo-padding {
+    padding: 28px 0 30px;
+}
+
+.plr-10 {
+    padding: 0 10px;
+}
+
+.bb-top {
+    border-top: 1px solid #323232;
+}
+
+.bb-bottom {
+    border-bottom: 1px solid #ececec;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+#rl-content .overlay {
+    position: relative;
+    z-index: 1;
+}
+
+#rl-content .overlay:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: #222222;
+    opacity: .95;
+    filter: alpha(opacity=95);
+    z-index: -1;
+}
+
+#rl-content strong {
+    color: #999999;
+}
+
+#rl-content a.link-out {
+    color: #f8cf27;
+}
+
+#rl-content a.link-out:hover {
+    text-decoration: underline;
+    ;
+}
+
+.section-title h2,
+.cta-text > h2 {
+    font-family: 'uni_sansheavy_caps';
+}
+
+.section-title h2 {
+    font-size: 34px;
+    margin: 0;
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+
+
+/*	01. BUTTON
+/*-----------------------------------------------------------------------------------*/
+
+.quote-btn:hover {
+    color: #EBC219;
+}
+
+.quote-btn {
+    border-left: 6px solid #fff;
+    border-right: 6px solid #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.button {
+    background: #222222 none repeat scroll 0 0;
+    color: #ffffff !important;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 20px 40px;
+    text-transform: uppercase;
+}
+
+.button-cta {
+    margin-bottom: 50px;
+    margin-top: 64px;
+    overflow: hidden;
+    padding: 18px 60px 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.quote-btn:hover,
+.button.button-cta:hover {
+    color: #fff;
+}
+
+.button-hover {
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button-hover:after {
+    background: #EBC219 none repeat scroll 0 0;
+    border-radius: 50%;
+    content: "";
+    height: 40px;
+    left: 40%;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+    top: 10%;
+    -webkit-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+    visibility: hidden;
+    width: 40px;
+    z-index: -1;
+}
+
+.button-cta:hover {
+    color: #fff;
+}
+
+.button-hover:hover:after {
+    visibility: visible;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(6.5);
+    -ms-transform: scale(6.5);
+    transform: scale(6.5);
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+
+
+
+/*	04. SLIDER
+/*-----------------------------------------------------------------------------------*/
+
+.slider-area {
+    height: 660px;
+    position: relative;
+}
+
+.slider-text.overlay:after {
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.slider-text h1 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 60px;
+    text-shadow: 1px 3px 8px rgba(0, 0, 0, 0.17);
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+}
+
+.slider-text h1 span {
+    color: #f8cf27;
+}
+
+.slider-text p {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.img-fill {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    text-align: center
+}
+
+.img-fill img {
+    height: 100%;
+    min-width: 100%;
+    position: relative;
+    display: inline-block;
+    max-width: none;
+}
+
+.blocks-box,
+.slick-slider {
+    margin: 0;
+    padding: 0!important;
+}
+
+.slick-slide {
+    float: left/* If RTL Make This Right */
+    ;
+    padding: 0;
+}
+
+.Modern-Slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.Modern-Slider .item .img-fill {
+    background: #000;
+}
+
+.Modern-Slider .item .img-fill .slider-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+}
+
+.tb {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.tbc {
+    padding-top: 195px;
+}
+
+.Modern-Slider .NextArrow {
+    left: 15px;
+    margin-top: -22.5px;
+    top: 50%;
+}
+
+.Modern-Slider .NextArrow:before {
+    content: '\eb61';
+}
+
+.Modern-Slider .PrevArrow,
+.Modern-Slider .NextArrow {
+    background: transparent none repeat scroll 0 0;
+    border: 1px solid #fff;
+    color: #ffffff;
+    font-family: "icofont";
+    font-size: 16px;
+    height: 29px;
+    position: absolute;
+    text-align: center;
+    width: 29px;
+    z-index: 5;
+    padding: 0px;
+    line-height: 29px;
+}
+
+.Modern-Slider .PrevArrow {
+    left: 15px;
+    margin-top: -58px;
+    top: 50%;
+}
+
+.Modern-Slider .PrevArrow:before {
+    content: '\eb5e';
+}
+
+.Modern-Slider .PrevArrow:hover,
+.Modern-Slider .NextArrow:hover {
+    background: #f8cf27;
+    border: #fff;
+}
+
+.Modern-Slider .slick-dots li button {
+    display: none;
+}
+
+.Modern-Slider .item.slick-active h1 {
+    -webkit-animation: fadeInDown 1s both 1s;
+    animation: fadeInDown 1s both 1s;
+}
+
+.Modern-Slider .item.slick-active p {
+    -webkit-animation: fadeInLeft 1s both 1.5s;
+    animation: fadeInLeft 1s both 1.5s;
+}
+
+.slider-text p {
+    line-height: 28px;
+}
+
+.slick-slider {
+    position: relative;
+    display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent
+}
+
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.slick-list:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+}
+
+.slick-track:before,
+.slick-track:after {
+    display: table;
+    content: ''
+}
+
+.slick-track:after {
+    clear: both;
+}
+
+.slick-loading .slick-track {
+    visibility: hidden
+}
+
+.slick-slide {
+    display: none;
+    float: left; /* If RTL Make This Right */
+    height: 785;
+    min-height: 1px
+}
+
+.slick-slide.dragging img {
+    pointer-events: none
+}
+
+.slick-initialized .slick-slide {
+    display: block
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden
+}
+
+.slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+
+
+
+/*	09. CALL TO ACTION
+/*-----------------------------------------------------------------------------------*/
+
+.cta-area {
+    background: #f8cf27;
+}
+
+.cta-text h2 {
+    color: #ffffff !important;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.cta-text span {
+    color: #ffffff;
+    font-weight: 300;
+}
+
+.cta-text {
+    padding: 60px 0 50px;
+}
+
+.cta-right {
+    text-align: right;
+    ;
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+
+
+/*	10. TESTIMONIAL
+/*-----------------------------------------------------------------------------------*/
+
+.tesimonial-area {
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.sin-tesimonial {
+    color: #999999;
+    font-style: italic;
+}
+
+.cliet-bio > h2 {
+    font-size: 16px;
+    font-style: normal;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+.client-pos {
+    color: #bdbdbd;
+    font-size: 12px;
+}
+
+.quote {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.cliet-bio {
+    font-style: normal;
+}
+
+.sin-tesimonial {
+    padding: 10px 0 10px 50px;
+    position: relative;
+    font-size: 13px;
+}
+
+.sin-tesimonial:after {
+    color: #e5e5e5;
+    content: "“";
+    font-size: 85px;
+    font-style: normal;
+    left: 15px;
+    position: absolute;
+    top: 37px;
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+
+
+/*	14.About Gallery
+/*-----------------------------------------------------------------------------------*/
+
+.about-content {
+    color: #999999;
+    padding: 21px 0 9px;
+}
+
+.about-gallery-posts {
+    padding: 60px 0 28px;
+}
+
+.about-gallery-posts .owl-dot {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 50%;
+    display: inline-block;
+    height: 9px;
+    margin: 0 2.5px;
+    width: 9px;
+}
+
+.about-gallery-posts .owl-dots {
+    bottom: 0;
+    position: absolute;
+    right: 12px;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.about-gallery-posts .owl-dot.active {
+    background: #f8cf27;
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+
+
+/*	15.What We Do Area
+/*-----------------------------------------------------------------------------------*/
+
+.sin-whatWork {
+    line-height: 28px;
+    border: 1px solid #e9e9e9;
+    padding: 25px 20px 20px;
+    position: relative;
+}
+
+.sin-whatWork h2 {
+    font-size: 18px;
+}
+
+.sin-whatWork:after {
+    background: #f8cf27 none repeat scroll 0 0;
+    content: "";
+    height: 30px;
+    left: -2px;
+    position: absolute;
+    top: 19px;
+    width: 3px;
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+
+
+/*	16.Our Team Area
+/*-----------------------------------------------------------------------------------*/
+
+.our-team-area {
+    background: url("img/team-bg.jpg") no-repeat scroll 0 0 / cover;
+    background-attachment: fixed;
+}
+
+.our-team-area.overlay:after {
+    opacity: .96;
+    filter: alpha(opacity=96);
+}
+
+.section-title.white h2 {
+    color: #fff !important;
+}
+
+.member-photo {
+    float: left;
+    margin-right: 25px;
+}
+
+.member-bio {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 22px;
+    padding-left: 125px;
+}
+
+.member-bio h2 {
+    color: #ffffff !important;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.member-pos {
+    color: #999999;
+    display: block;
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+
+/*
+--------------------------
++ Colors Css
+--------------------------
+*/
+
+.head-bottom-area,
+.contact-btn,
+.footer-newsletter > input[type="submit"],
+.mainmenu-area ul.nav.navbar-nav li ul li::after,
+.Modern-Slider .PrevArrow:hover,
+.Modern-Slider .NextArrow:hover,
+.cta-area,
+.color-palate-head,
+.sin-whatWork::after,
+.single-form input[type="submit"],
+input#submit-comment,
+ul.degins li::after,
+.mean-container .mean-bar,
+.mean-container .mean-nav ul li,
+.Modern-Slider .PrevArrow:hover,
+.Modern-Slider .NextArrow:hover,
+.sin-pricing-table.active,
+a.pricing-btn {
+    background-color: #1F81C2;    /* -- Your primary color code here -- */
+}
+
+
+/* Jotil Colors*/
+
+.mainmenu-area ul.nav.navbar-nav > li > a:hover,
+.mainmenu-area ul.nav.navbar-nav li.active,
+.button-hover::after,
+.color-trigger,
+.about-gallery-posts .owl-dot.active,
+.sin-pricing-table.active .pricing-status {
+    background-color: #1F81C2;    /* -- Your primary color hover code here -- */
+}
+
+
+/* Color*/
+
+.info-icon,
+a.link-out,
+.facts-headding h2 > strong,
+.social-links ul li a:hover,
+.mainmenu-area ul.nav.navbar-nav li ul li a:hover,
+a.replay-btn:hover,
+a.author,
+.slider-text h1 span,
+.sidebar .widget ul li a:hover,
+.sidebar .sin-testimonial .quote-icon {
+    color: #F8CF27;                /* -- Your text color code here -- */
+}
+
+/* Secondary Colors */
+
+#footer-area,
+.overlay::after,
+.mainmenu-area ul.nav.navbar-nav li ul li a,
+.button.quote-btn,
+.button.button-cta,
+.sidebar .widget,
+.sin-pricing-table.active .pricing-btn,
+.sin-pricing-table {
+    background-color: #222222;
+}
+
+.bb-top,
+.mainmenu-area ul.nav.navbar-nav li ul li{
+    border-color: #191919;
+}
+
+.sidebar ul.widget_links::after,
+.sin-news .news-hover,
+.secondary-two .work-thumb:hover .work-hover,
+.news-thumb:hover .news-hover {
+    background: rgba(34, 34, 34, 0.9);
+}
+
+.secondary-two .pricing-status {
+    background: #222222;
+}
+
+/*
+--------------------------
++ Preloader Css
+--------------------------
+*/
+
+div#preloader {
+    overflow: hidden;
+    background-color: #ecf0f1;
+    background-image: url(img/preLoader.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}

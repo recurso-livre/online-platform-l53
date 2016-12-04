@@ -39,12 +39,12 @@ Route::get('/home', 'HomeController@index');
 Route::group(['as' => 'user.'], function ()
 {
     Route::get('/', ['as' => 'index', 'uses' => 'UserController@index']);
+    Route::get('sobre', ['as' => 'about', 'uses' => 'AboutController@index']);
 });
 
 Route::group(['as' => 'guest.'], function ()
 {
     Route::post('acessar', ['as' => 'login.post', 'uses' => 'Auth\LoginController@login']);
-
 
     Route::get('cadastrar', ['as' => 'create', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
     Route::post('cadastrar', ['as' => 'create.post', 'uses' => 'Auth\RegisterController@register']);

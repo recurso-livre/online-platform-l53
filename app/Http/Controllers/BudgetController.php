@@ -115,7 +115,6 @@ class BudgetController extends Controller
         
         Budget::find($input['budgetId'])->update(['rating' => $input['rating'], 'comment' => $input['comment']]);
         
-        
         return redirect()->route('auth.dashboard.index');
     }
 }

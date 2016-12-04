@@ -52,10 +52,10 @@
 @php ($images = json_decode($resource->uriResources)->images)
 
 <div class="resource-header shadow6">
-    <div class="container padding-tb-50">
+    <div class="container" style="padding-top: 30px; padding-bottom: 30px">
         <div class="row">
             <div class="col-md-4 col-sm-6" style="min-height: 365px">
-                <div class="pull-right">
+                <div>
                     <div class="sp-loading"><img src="{{ asset('vendor/smoothproducts/images/sp-loading.gif') }}" alt=""><br>Carregando...</div>
                     <div class="sp-wrap shadow6">
                         @if (count($images) > 0)
@@ -80,7 +80,7 @@
                             <div class="col-md-12" style="margin-left: -11px;"><div id="rating"></div></div>
                             <div class="col-md-12">
                                 <div style="color: #777">
-                                    {{ $rating->total_budgets === 0 ? "Nenhuma venda registrada" : $rating->total_budgets . " venda(s) registrada(s)" }}
+                                    {{ $rating->total_budgets === 0 ? "Nenhuma avaliação" : $rating->total_budgets . ($rating->total_budgets === 1 ? " avaliação" : " avaliações") }}
                                 </div>
                             </div>
                             <div class="col-md-12" style="padding-top: 40px; margin-left: 14px">
@@ -120,3 +120,94 @@
           </div>
     </div>
 </div>
+
+<div class="resource-content">
+    <div class="container margin-tb-40">
+        <h3 style="width: 100%; border-bottom: 1px solid #ccc;">Avaliações</h3>
+        @if (count($comments) > 0)
+            @foreach ($comments as $comment)
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="material-content">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <span class="name">{{$comment->name}}</span>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-md-12"><div class="rating" id="rating-{{$comment->id}}"></div></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"><span class="date">{{$comment->date[2].'/'.$comment->date[1].'/'.$comment->date[0]}}</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="material-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="message">{{$comment->message}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        @push('posscripts')
+                            <script>
+                                $(function () {
+                                    $("#rating-{{$comment->id}}").rateYo({
+                                        normalFill: "#e7e7e7",
+                                        rating: {{$comment->rating}},
+                                        starWidth: "20px",
+                                        readOnly: true,
+                                        multiColor: {
+                                          "startColor": "#F44336",
+                                          "endColor"  : "#4CAF50"
+                                        },
+                                        halfStar: true
+                                    });
+                                });
+                            </script>
+                        @endpush
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <div style="text-align: center">
+                <h1 style="color: #7d7d7d; font-weight: bold; margin: 120px auto">Nenhuma Avaliação :(</h1>
+            </div>
+        @endif
+    </div>
+</div>
+
+<style type="text/css">
+    .name {
+        font-size: 16px;
+        font-weight: bold;
+        color: #495F93;
+    }
+    
+    .date {
+        font-size: 12px;
+        color: #495F93;
+    }
+    
+    .message {
+        color: #656565;
+    }
+    
+    .material-body {
+        margin: 11px -20px -20px -20px;
+        padding: 30px 17px 14px 17px;
+        background-color: #efefef;
+        border-top: 1px solid #ddd;
+    }
+    
+    .rating, .date {
+        float: right;
+    }
+    
+    .rating {
+        margin-top: -10px;
+        height: 20px;
+    }
+</style>

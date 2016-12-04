@@ -30,7 +30,7 @@
     @include('modules.vendor.slippry.slider', [
         'slides' => [
             [
-                'link' => '#slide1',
+                'link' => route('user.about'),
                 'img' => asset('img/home-slider/001.png')
             ],
             [
@@ -71,89 +71,14 @@
     ])
     
     <div class="container">
-        @include('modules.content.resource.multi-slider', [
-            'title' => 'Recentes',
-            'products' => [
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ]
-            ]
-        ])
         
-        @include('modules.content.resource.multi-slider', [
-            'title' => 'Produtos',
-            'products' => [
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ]
-            ]
-        ])
+        @for($count = 0; $count < 2; $count++)
+            @include('modules.content.resource.multi-slider', [
+                'title' => key($resources),
+                'resources' => array_shift($resources)
+            ])
+        @endfor
+        
     </div>
     
     @include('modules.content.generic.horizontal-text-line', [
@@ -168,89 +93,14 @@
     ])
     
     <div class="container">
-        @include('modules.content.resource.multi-slider', [
-            'title' => 'Impressoras 3D',
-            'products' => [
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ]
-            ]
-        ])
-        
-        @include('modules.content.resource.multi-slider', [
-            'title' => 'Chaveiros',
-            'products' => [
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ],
-                [
-                    'img' => 'https://placehold.it/400x200',
-                    'name' => 'product',
-                    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque venenatis nisl ut tristique tincidunt.',
-                    'link' => '#'
-                ]
-            ]
-        ])
+    
+        @for($count = 0; $count < 2; $count++)
+            @include('modules.content.resource.multi-slider', [
+                'title' => key($resources),
+                'resources' => array_shift($resources)
+            ])
+        @endfor
+    
     </div>
     
 @endsection
