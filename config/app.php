@@ -164,7 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
+        //Barryvdh\Debugbar\ServiceProvider::class,
         Indal\Markdown\MarkdownServiceProvider::class,
 
         /*
