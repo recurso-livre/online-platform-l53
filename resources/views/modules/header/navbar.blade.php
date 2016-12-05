@@ -17,8 +17,10 @@
         <form id="search-form" class="navbar-form navbar-left">
           <div class="input-group navbar-search">
             <input id="search-query" type="text" class="form-control" placeholder="Procurar...">
+            <!--<input id="search-query" type="text" class="form-control" placeholder="Procurar..." disabled>-->
             <span class="input-group-btn">
               <button id="search-btn" class="btn btn-default" type="submit" style="background: white;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              <!--<button id="search-btn" class="btn btn-default" type="submit" style="background: white;" disabled><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>-->
             </span>
           </div><!-- /input-group -->
         </form>
@@ -48,13 +50,13 @@
           
         @else
           <li>
-            <a class="rl-navbar-btn" href="#login-modal" data-toggle="modal" data-target="#login-modal">
+            <a class="rl-navbar-btn disabled" href="#login-modal" data-toggle="modal" data-target="#login-modal">
               Acessar&nbsp;&nbsp;
               <i class="fa fa-sign-in"></i>
             </a>
           </li>
           <li>
-            <a class="rl-navbar-btn" href="{{ route('guest.create') }}">
+            <a class="rl-navbar-btn disabled" href="{{ route('guest.create') }}">
               Cadastrar&nbsp;&nbsp;
               <i class="fa fa-user"></i>
             </a>

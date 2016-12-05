@@ -39,6 +39,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['as' => 'user.'], function ()
 {
     Route::get('/', ['as' => 'index', 'uses' => 'UserController@index']);
+    //Route::get('/', ['as' => 'index', 'uses' => 'AboutController@index']);
     Route::get('sobre', ['as' => 'about', 'uses' => 'AboutController@index']);
 });
 

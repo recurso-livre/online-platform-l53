@@ -47,6 +47,11 @@
         padding-top: 50px;
         padding-bottom: 50px;
     }
+    
+    .sp-large img {
+        width: 300px !important;
+        height: 300px !important;
+    }
 </style>
 
 @php ($images = json_decode($resource->uriResources)->images)

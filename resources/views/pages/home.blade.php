@@ -35,7 +35,7 @@
             ],
             [
                 'link' => '#slide2',
-                'img' => 'https://placehold.it/1600x340'
+                'img' => asset('img/home-slider/002.png')
             ]
         ]
     ])
@@ -56,10 +56,10 @@
                 'link' => '#'
             ],
             [
-                'title' => 'Receba o produto',
+                'title' => 'Conheça nossa empresa',
                 'image' => 'http://resources.mlstatic.com/homes/images/information-shipping__v1d5ad91f43e.png',
-                'description' => 'Calcule o custo e o tempo de entrega com o fornecedor em cada anúncio. Pague com Pagseguro, o envio é mais barato e você está protegido!',
-                'link' => '#'
+                'description' => 'Nossa empresa possui um sistema fácil, rápido e prático para te conectar a qualquer serviço disponível. Clique aqui e saiba mais sobre nossas políticas e objetivos.',
+                'link' => route('user.about')
             ],
             [
                 'title' => 'Proteja a sua compra',

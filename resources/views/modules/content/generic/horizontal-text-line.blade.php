@@ -32,20 +32,22 @@
             
             
             @if(count($texts) > 1)
-                <div class="col-md-4 col-sm-6">
-                    <div class="row">
-                        <div class="col-sm-12"><span class='text-title'>{{ $texts[1]['title'] }}</span></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <img class="img-responsive" src="{{ $texts[1]['image'] }}" border="0">
+                <a href="{{ $texts[1]['link'] }}">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-12"><span class='text-title'>{{ $texts[1]['title'] }}</span></div>
                         </div>
-                        <div class="col-sm-8 text-description">{{ $texts[1]['description'] }}</div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-responsive" src="{{ $texts[1]['image'] }}" border="0">
+                            </div>
+                            <div class="col-sm-8 text-description">{{ $texts[1]['description'] }}</div>
+                        </div>
+                        <div class="row">
+                            <!--<div class="col-sm-12"><a href="{{ $texts[1]['link'] }}">Leia mais</a></div>-->
+                        </div>
                     </div>
-                    <div class="row">
-                        <!--<div class="col-sm-12"><a href="{{ $texts[1]['link'] }}">Leia mais</a></div>-->
-                    </div>
-                </div>
+                </a>
             @endif
             
             
